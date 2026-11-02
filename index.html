@@ -195,6 +195,7 @@ header.top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom
 /* Rekindle */
 .ember{display:flex;gap:16px;align-items:center;flex-wrap:wrap;background:radial-gradient(circle at 10% 50%,rgba(255,120,40,.18),transparent 55%),var(--stone-2);border:1px solid var(--line);border-radius:14px;padding:14px}
 .ember .big{font-family:var(--f-display);font-size:34px;color:var(--lantern-hot);line-height:1}
+.rkc{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:30px;padding:0 9px;margin-left:6px;border-radius:999px;background:linear-gradient(180deg,var(--lantern),var(--lantern-hot));color:#2a1500;font-size:17px;vertical-align:3px;box-shadow:0 0 14px rgba(255,138,42,.35)}
 .ember .lbl{font-size:12px;color:var(--ink-dim);font-weight:800;text-transform:uppercase;letter-spacing:.08em}
 
 /* Trophies */
@@ -269,6 +270,78 @@ textarea{width:100%;min-height:84px;background:var(--bg);color:var(--ink);border
 .sl .sm2{font-size:13px;color:var(--ink-dim);font-variant-numeric:tabular-nums}
 .sl .acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}
 
+/* Skins */
+.crates{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px}
+.crate{background:var(--stone-2);border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:6px;align-items:flex-start;min-width:0}
+.cbox{width:46px;height:36px;border-radius:6px;background:linear-gradient(160deg,var(--c1),var(--c2));box-shadow:inset 0 -8px 0 rgba(0,0,0,.25),0 0 18px color-mix(in srgb,var(--c1) 40%,transparent);position:relative;margin-bottom:2px}
+.cbox::after{content:"";position:absolute;left:0;right:0;top:11px;height:5px;background:rgba(0,0,0,.35)}
+.cbox::before{content:"";position:absolute;left:50%;top:8px;width:10px;height:11px;transform:translateX(-50%);border-radius:2px;background:rgba(255,255,255,.55);z-index:1}
+.skg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.skc{background:var(--stone-2);border:1px solid var(--line);border-radius:12px;padding:10px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;min-width:0}
+.skc.on{border-color:var(--lantern);box-shadow:0 0 16px rgba(255,184,63,.16)}
+.skc .rd{min-height:3.9em}
+.skc.locked .sw{filter:grayscale(.9) brightness(.55)}
+.skc.locked .rt{color:var(--ink-dim)}
+.skc .acts{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;margin-top:auto}
+.sw{display:block;width:46px;height:46px;border-radius:12px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.16),0 4px 10px rgba(0,0,0,.35);flex:none}
+.reel{position:relative;overflow:hidden;border-radius:12px;border:1px solid var(--line);background:var(--bg);margin:12px 0}
+.reel::before,.reel::after{content:"";position:absolute;top:0;bottom:0;width:40px;z-index:2;pointer-events:none}
+.reel::before{left:0;background:linear-gradient(90deg,var(--bg),transparent)}
+.reel::after{right:0;background:linear-gradient(-90deg,var(--bg),transparent)}
+.strip{display:flex;gap:8px;padding:12px 0;will-change:transform}
+.tile{flex:none;width:96px;height:104px;border-radius:10px;background:var(--stone-2);border:2px solid var(--rc);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:11px;font-weight:900;text-align:center;padding:4px;line-height:1.15}
+.needle{position:absolute;left:50%;top:0;bottom:0;width:3px;background:var(--lantern);transform:translateX(-50%);box-shadow:0 0 12px var(--lantern);z-index:3}
+.spinres{min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.spinres .ctrl{justify-content:center}
+
+/* Hardcore */
+#dark{position:fixed;inset:0;pointer-events:none;z-index:40;opacity:0;background:radial-gradient(ellipse at 50% 42%,rgba(0,0,0,.6),#000 72%);transition:opacity .35s linear}
+.hrt{display:inline-block;width:18px;height:16px;margin-right:2px;vertical-align:-2px}
+.hrt.on path{fill:#ff4d6a;filter:drop-shadow(0 0 4px rgba(255,77,106,.6))}
+.hrt.off path{fill:none;stroke:#6b3a44;stroke-width:2}
+.big-hearts .hrt{width:26px;height:23px}
+button.stat{font:inherit;color:inherit;text-align:left;cursor:pointer}
+.stat.lamp .mini{display:block;height:4px;border-radius:9px;background:var(--stone-3);margin-top:3px;overflow:hidden}
+.stat.lamp .mini i{display:block;height:100%;background:linear-gradient(90deg,#ff6a2a,#ffd36b)}
+.stat.lamp.low{border-color:var(--danger);animation:lowpulse 1s ease-in-out infinite}
+@keyframes lowpulse{50%{box-shadow:0 0 16px rgba(255,90,100,.55)}}
+.flame{background:radial-gradient(circle at 12% 30%,rgba(255,170,60,.2),transparent 60%),var(--stone-2);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px;display:flex;flex-direction:column;gap:8px}
+.flame.low{border-color:var(--danger)}
+.flame .fl-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.flame .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-dim);font-weight:900}
+.flame .pct{font-family:var(--f-display);font-size:32px;line-height:1;color:var(--lantern)}
+.flame.low .pct{color:var(--danger)}
+.bar.fl{height:12px;margin:0}
+.bar.fl i{background:linear-gradient(90deg,#ff6a2a,#ffd36b)}
+.hcb{display:inline-flex;gap:6px;align-items:center;font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:#ff5f7a}
+.hcb .hrt{width:13px;height:12px}
+.modes{display:flex;flex-direction:column;gap:6px}
+.modes .btn{text-align:left;white-space:normal;display:flex;flex-direction:column;gap:2px;padding:10px 12px}
+.modes .btn small{font-weight:700;font-size:12px;opacity:.85}
+.modes .btn.hard{border-color:#ff5f7a;background:linear-gradient(180deg,#3a1018,#1d0a0e);color:#ffd6dc}
+.perma{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px}
+.pt{display:flex;gap:10px;align-items:flex-start;background:var(--stone-2);border:1px solid var(--line);border-radius:10px;padding:9px 10px}
+.pt svg{width:34px;height:32px;flex:none;color:#2c3739}
+.pt.got{border-color:color-mix(in srgb,#ffc53d 55%,var(--line))}
+.pt.got svg{color:#ffc53d;filter:drop-shadow(0 0 8px rgba(255,197,61,.55))}
+.pt .an{font-weight:900;font-size:13px}
+.pt.got .an{color:#ffc53d}
+.pt .ad{font-size:11.5px;color:var(--ink-dim)}
+.pt .pfx{font-size:11.5px;font-weight:800;color:var(--moss);margin-top:2px}
+.pt:not(.got) .pfx{color:var(--ink-faint)}
+.chip.cursed{border-color:#6a35b8;background:linear-gradient(180deg,#2a1240,#170a24);color:#e6d4ff;box-shadow:0 0 10px rgba(138,61,255,.25)}
+.chip.cursed:hover{border-color:#a35cff}
+.cursed-h{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin:10px 0 6px;font-size:12.5px}
+.cz{color:#c08bff;font-weight:900}
+.altar{background:radial-gradient(circle at 90% 0%,rgba(138,61,255,.18),transparent 60%),#150c1f;border:1px solid #3a2457;border-radius:14px;padding:12px;margin-bottom:16px}
+.altar .row{background:rgba(20,10,32,.7);border-color:#3a2457}
+.btn.curse{background:linear-gradient(180deg,#6a35b8,#3b1a6a);border-color:#a35cff;color:#f3e8ff;min-width:84px}
+.mcard.wide{max-width:540px;max-height:calc(100vh - 40px);overflow:auto;text-align:left}
+.mcard.wide h2,.mcard.wide>.intro>p{text-align:left}
+.intro .btn{margin-top:6px}
+.rules{margin:4px 0 14px;padding-left:18px;color:var(--ink-dim);font-size:14px;display:flex;flex-direction:column;gap:7px}
+.rules b{color:var(--ink)}
+
 /* Toasts, banner, modal */
 #toasts{position:fixed;right:calc(14px + env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:6px;z-index:50;pointer-events:none;max-width:min(360px,calc(100vw - 28px))}
 @media (max-width:920px){#toasts{left:calc(14px + env(safe-area-inset-left,0px))}.toast{font-size:12.5px;padding:6px 10px}.toast:nth-last-child(n+3){display:none}}
@@ -329,6 +402,7 @@ textarea{width:100%;min-height:84px;background:var(--bg);color:var(--ink);border
 <div id="banner"></div>
 <div id="modal" hidden></div>
 <div id="title" hidden></div>
+<div id="dark" aria-hidden="true"></div>
 
 <script>
 'use strict';
@@ -463,8 +537,103 @@ const ACCS=[
 ];
 const ACC=Object.fromEntries(ACCS.map(a=>[a.id,a]));
 const ACC_BY_LAYER=LAYERS.map((L,i)=>ACCS.filter(a=>a.layer===i));
-const FXNAME={power:'power',luck:'luck',coins:'coins',swarm:'glowkin speed',kin:'glowkin perks',crit:'crit chance',critdmg:'crit damage',roll:'extra rolls',geode:'geode chance',offline:'offline earnings',glint:'glint frequency'};
+const FXNAME={embers:'embers',power:'power',luck:'luck',coins:'coins',swarm:'glowkin speed',kin:'glowkin perks',crit:'crit chance',critdmg:'crit damage',roll:'extra rolls',geode:'geode chance',offline:'offline earnings',glint:'glint frequency'};
 const MAXSTAR=5;
+
+// Pickaxe skins: cosmetic only, shared by every pickaxe. Each can recolor chips and cracks and add its own
+// hit effect (every swing) and break effect (every block). Effect helpers are defined with the canvas code.
+const CONF=['#ff5fa8','#ffd25a','#5fb0ff','#86d68f','#b884ff'];
+const SKINS=[
+  {id:'default',name:"Miner's Steel",r:0,desc:'Classic rock chips.',sw:'linear-gradient(135deg,#a88462,#4a3626)'},
+  {id:'crimson',name:'Crimson Coat',r:0,desc:'Red chips and a glowing red crack.',sw:'linear-gradient(135deg,#ff7b7b,#9e1028)',chunk:['#ff5a5a','#c41f3a','#ff9a8a'],crack:'#ff4d5a'},
+  {id:'mint',name:'Mint Coat',r:0,desc:'Cool mint chips and a minty crack.',sw:'linear-gradient(135deg,#c8ffe8,#26a87c)',chunk:['#9effd2','#2fbf8f','#e8fff6'],crack:'#7dffc8'},
+  {id:'goldleaf',name:'Gold Leaf',r:0,desc:'Gold flakes that glitter on every swing.',sw:'linear-gradient(135deg,#fff1a8,#c7880f)',chunk:['#ffd34d','#e0a420','#fff3b0'],crack:'#ffd34d',
+    hit:(x,y)=>{for(let i=0;i<6;i++)spark(x,y,'#fff6c8',220)}},
+  {id:'melon',name:'Melon Smash',r:1,desc:'Seeds fly with every hit. Blocks burst into watermelon slices.',sw:'linear-gradient(135deg,#ff4d6a 0 55%,#f5ffe8 55% 63%,#3fae4a 63%)',chunk:['#3fae4a','#ff4d6a','#e8ffd8'],crack:'#ff4d6a',
+    hit:(x,y)=>{for(let i=0;i<5;i++)P({k:'seed',x,y,vx:(rnd()-.5)*240,vy:-80-rnd()*170,g:650,life:.8,max:.8,s:2.4,vr:(rnd()-.5)*10,col:'#1a1410'});for(let i=0;i<5;i++)spark(x,y,'#ff4d6a',170)},
+    brk:(x,y,s)=>{for(let i=0;i<9;i++)P({k:'melon',x:x+(rnd()-.5)*s*.5,y:y+(rnd()-.5)*s*.4,vx:(rnd()-.5)*380,vy:-220-rnd()*320,g:900,life:1.5,max:1.5,s:12+rnd()*10,vr:(rnd()-.5)*9});
+      for(let i=0;i<18;i++)P({k:'seed',x:x+(rnd()-.5)*s*.5,y:y+(rnd()-.5)*s*.5,vx:(rnd()-.5)*300,vy:-150-rnd()*250,g:700,life:1.1,max:1.1,s:2.4,vr:(rnd()-.5)*10,col:'#1a1410'})}},
+  {id:'bubble',name:'Bubble Pop',r:1,desc:'Swings blow bubbles. Blocks pop into a fizz of them.',sw:'radial-gradient(circle at 35% 35%,#fff 0 12%,#bfe9ff 13% 45%,#4f9be8 70%)',crack:'#bfe9ff',noChips:true,
+    hit:(x,y)=>{for(let i=0;i<6;i++)P({k:'bubble',x:x+(rnd()-.5)*20,y,vx:(rnd()-.5)*70,vy:-30-rnd()*70,g:-35,life:1.7,max:1.7,s:3+rnd()*6,col:'#cdefff'})},
+    brk:(x,y,s)=>{for(let i=0;i<40;i++)P({k:'bubble',x:x+(rnd()-.5)*s*.8,y:y+(rnd()-.5)*s*.8,vx:(rnd()-.5)*120,vy:-20-rnd()*110,g:-40,life:1.4+rnd(),max:2.4,s:3+rnd()*12,col:rnd()<.5?'#cdefff':'#ffd6f5'})}},
+  {id:'confetti',name:'Party Popper',r:1,desc:'Every block ends in a confetti cannon.',sw:'conic-gradient(#ff5fa8,#ffd25a,#5fb0ff,#86d68f,#b884ff,#ff5fa8)',crack:'#ffd25a',
+    hit:(x,y)=>{for(let i=0;i<8;i++)P(confetto(x,y,220))},
+    brk:(x,y,s)=>{for(let i=0;i<80;i++)P(confetto(x+(rnd()-.5)*s*.4,y,520))}},
+  {id:'pixel',name:'8-Bit Crusher',r:2,desc:'Rock breaks into chunky pixels, and blocks dissolve square by square.',sw:'conic-gradient(#3dd6ff 0 25%,#ff3df2 0 50%,#ffe14d 0 75%,#1b2527 0)',crack:'#3dd6ff',noChips:true,noBurst:true,
+    hit:(x,y)=>{const c=layerCols();for(let i=0;i<8;i++)P({k:'pixel',x,y,vx:(rnd()-.5)*260,vy:-60-rnd()*200,g:700,life:.7,max:.7,s:4+((rnd()*2)|0)*2,col:c[i%c.length]})},
+    brk:(x,y,s)=>{const c=layerCols().concat(['#3dd6ff','#ff3df2']),n=8,q=s/n;for(let gx=0;gx<n;gx++)for(let gy=0;gy<n;gy++)P({k:'pixel',x:x-s/2+(gx+.5)*q,y:y-s/2+(gy+.5)*q,vx:(rnd()-.5)*90,vy:-rnd()*140,g:520,life:.45+gy*.06+rnd()*.25,max:1,s:q-1,col:c[(rnd()*c.length)|0]})}},
+  {id:'frost',name:'Frostbite',r:2,desc:'Ice shards crack off and snow drifts down the shaft.',sw:'linear-gradient(135deg,#ffffff,#9fe6ff 45%,#2d6a9a)',crack:'#9fe6ff',noChips:true,
+    hit:(x,y)=>{for(let i=0;i<6;i++)P(shard(x,y,260));for(let i=0;i<2;i++)P(flake(x,y))},
+    brk:(x,y,s)=>{for(let i=0;i<28;i++)P(shard(x+(rnd()-.5)*s*.6,y+(rnd()-.5)*s*.6,420));for(let i=0;i<20;i++)P(flake(x+(rnd()-.5)*s,y+(rnd()-.5)*s*.6))}},
+  {id:'thunder',name:'Thunderclap',r:2,desc:'Lightning strikes wherever you swing.',sw:'linear-gradient(135deg,#1b2a4a,#5fb0ff 60%,#fff)',crack:'#9ad8ff',
+    hit:(x,y)=>{bolt(x+(rnd()-.5)*120,-10,x,y,'#9ad8ff');addFx({type:'flash',col:'#9ad8ff',a:.12,life:.12,max:.12});for(let i=0;i<6;i++)spark(x,y,'#e6f6ff',260);tone(90,.15,'sawtooth',.025,40)},
+    brk:(x,y,s)=>{for(let i=0;i<4;i++)bolt(x+(rnd()-.5)*W*.6,-10,x+(rnd()-.5)*s*.6,y+(rnd()-.5)*s*.6,'#9ad8ff',i*.06);addFx({type:'flash',col:'#cfe8ff',a:.3,life:.25,max:.25});for(let i=0;i<24;i++)spark(x,y,'#e6f6ff',360)}},
+  {id:'phoenix',name:'Phoenix Flare',r:3,desc:'Flames rise from every hit. Blocks go up in a ring of fire.',sw:'radial-gradient(circle at 50% 70%,#fff3c4,#ffb23f 35%,#ff4e1f 65%,#5a1205)',chunk:['#ff7a1a','#ffd36b','#7a2a0a'],crack:'#ff9a3d',
+    hit:(x,y)=>{for(let i=0;i<9;i++)P(flame(x,y,90))},
+    brk:(x,y,s)=>{for(let i=0;i<44;i++){const a=i/44*Math.PI*2;P({...flame(x,y,0),vx:Math.cos(a)*320,vy:Math.sin(a)*320,g:-60,drag:.08,life:.9,max:.9,s:8+rnd()*6})}addFx({type:'ring',x,y,r0:s*.2,r1:s*1.1,w:10,col:'#ff8a2a',life:.55,max:.55})}},
+  {id:'sakura',name:'Sakura Storm',r:3,desc:'Cherry blossom petals swirl off the rock.',sw:'radial-gradient(circle at 40% 40%,#fff 0 10%,#ffc4dc 11% 55%,#e86a9a)',chunk:['#ffc4dc','#ff8fb8','#ffffff'],crack:'#ffb7d5',
+    hit:(x,y)=>{for(let i=0;i<6;i++)P(petal(x,y,180))},
+    brk:(x,y,s)=>{for(let i=0;i<55;i++)P(petal(x+(rnd()-.5)*s*.6,y+(rnd()-.5)*s*.6,420))}},
+  {id:'blackhole',name:'Event Horizon',r:3,desc:'Swings leave tiny singularities. Blocks collapse into a black hole.',sw:'radial-gradient(circle,#000 0 30%,#5a2a9a 45%,#ffb36b 55%,#0a0612 70%)',crack:'#b884ff',noBurst:true,
+    hit:(x,y)=>{addFx({type:'hole',x,y,r:16,life:.45,max:.45});for(let i=0;i<10;i++)P(orbiter(x,y,44,'#d9b8ff',.45))},
+    brk:(x,y,s)=>{addFx({type:'hole',x,y,r:s*.42,life:.8,max:.8});for(let i=0;i<50;i++)P(orbiter(x,y,s*(.5+rnd()*.5),rnd()<.5?'#d9b8ff':'#ffb36b',.75));addFx({type:'ring',x,y,r0:4,r1:s*1.3,w:6,col:'#ffffff',life:.4,max:.4,delay:.7})}},
+  {id:'cleaver',name:'Cursed Cleaver',r:4,desc:'Every swing tears crimson slashes through the rock. Blocks split clean in half.',sw:'linear-gradient(135deg,#1a0508 0 40%,#ff2a4a 40% 46%,#1a0508 46% 70%,#ff2a4a 70% 75%,#1a0508 75%)',chunk:['#3a0a10','#ff2a4a','#1a1410'],crack:'#ff2a4a',split:true,
+    hit:(x,y)=>{const s=blockSize();for(let i=0;i<2;i++)slash(x,y,s*(.8+rnd()*.4),'#ff2a4a',i*.07);tone(1500,.08,'sawtooth',.016,300)},
+    brk:(x,y,s)=>{for(let i=0;i<10;i++)slash(x+(rnd()-.5)*s*.5,y+(rnd()-.5)*s*.5,s*(1+rnd()*.5),i%3?'#ff2a4a':'#ffffff',i*.035)}},
+  {id:'trio',name:'Infinity Trinity',r:4,desc:'Blue pulls in, red blasts out, and every third swing fires a purple orb straight through the rock.',sw:'conic-gradient(#3d8bff 0 33%,#ff3b4d 0 66%,#b05cff 0)',crack:'#b05cff',noChips:true,
+    hit:(x,y)=>{const s=blockSize(),m=(FX.trio=(FX.trio||0)+1)%3;
+      if(m===1){addFx({type:'orb',x,y,r:s*.16,col:'#3d8bff',grow:true,life:.5,max:.5});for(let i=0;i<16;i++)P(orbiter(x,y,s*.45,'#9cc4ff',.5));tone(220,.25,'sine',.035,440)}
+      else if(m===2){addFx({type:'orb',x,y,r:s*.17,col:'#ff3b4d',grow:true,life:.4,max:.4});for(let i=0;i<22;i++)spark(x,y,'#ff8a96',420);FX.shake+=5;tone(520,.15,'square',.025,260)}
+      else{const x0=W/2-s*.9;addFx({type:'orb',x:x0,y,vx:s*3.6,r:s*.22,col:'#b05cff',life:.5,max:.5});for(let i=0;i<16;i++)P({k:'spark',x:x0+i*s*.12,y:y+(rnd()-.5)*s*.2,vx:(rnd()-.5)*80,vy:(rnd()-.5)*80,g:0,life:.6,max:.6,s:2+rnd()*2,col:'#d9a8ff'});addFx({type:'flash',col:'#b05cff',a:.18,life:.2,max:.2});FX.shake+=10;tone(140,.45,'sawtooth',.045,45)}},
+    brk:(x,y,s)=>{addFx({type:'disc',x,y,r1:s*1.25,col:'#b05cff',life:.6,max:.6});addFx({type:'ring',x,y,r0:s*.3,r1:s*1.5,w:8,col:'#e6ccff',life:.5,max:.5});for(let i=0;i<36;i++)spark(x,y,['#3d8bff','#ff3b4d','#b05cff'][i%3],420)}},
+  {id:'domain',name:'Void Domain',r:5,desc:'Breaking a block opens a domain: the whole shaft goes dark and shatters like glass.',sw:'radial-gradient(circle,#c9a3ff 0 8%,#2a0a4a 30%,#000 70%)',chunk:['#2a0a4a','#c9a3ff','#000000'],crack:'#c9a3ff',heavy:true,
+    hit:(x,y)=>{addFx({type:'shatter',x,y,lines:shatterLines(7,18,60),col:'#e2ccff',life:.35,max:.35})},
+    brk:(x,y,s)=>{addFx({type:'domain',x,y,lines:shatterLines(26,W*.15,Math.max(W,H)),life:1.3,max:1.3});for(let i=0;i<12;i++)slash(x+(rnd()-.5)*W*.6,y+(rnd()-.5)*H*.5,s*(1.2+rnd()),i%2?'#c9a3ff':'#ffffff',.15+i*.04);tone(55,1,'sine',.06,40);tone(880,.5,'triangle',.025,1760,.15)}},
+  {id:'prism',name:'Prism Heart',r:5,desc:'Rainbow cracks and a full-spectrum explosion.',sw:'conic-gradient(red,orange,yellow,lime,cyan,blue,magenta,red)',crack:'rainbow',noChips:true,
+    hit:(x,y)=>{for(let i=0;i<10;i++)spark(x,y,`hsl(${(i*36+FX.t*120)%360},100%,65%)`,300)},
+    brk:(x,y,s)=>{for(let k=0;k<3;k++)addFx({type:'ring',x,y,r0:s*.2,r1:s*(1.1+k*.25),w:7,col:`hsl(${(k*120+FX.t*120)%360},100%,65%)`,life:.6,max:.6,delay:k*.08});
+      for(let i=0;i<50;i++){const p=shard(x+(rnd()-.5)*s*.5,y+(rnd()-.5)*s*.5,480);p.col=`hsl(${(rnd()*360)|0},100%,65%)`;P(p)}}},
+];
+const SKIN=Object.fromEntries(SKINS.map(s=>[s.id,s]));
+const CRATES=[
+  {id:'stone',name:'Stone Crate',k:40,min:150,w:[65,28,7,0,0,0],c1:'#a88462',c2:'#4a3626'},
+  {id:'gilded',name:'Gilded Crate',k:250,min:3000,w:[15,35,32,15,3,0],c1:'#ffd34d',c2:'#9a6a10'},
+  {id:'void',name:'Void Crate',k:1500,min:6e4,w:[0,0,30,40,24,6],c1:'#b05cff',c2:'#1a0630'},
+];
+const CRATE=Object.fromEntries(CRATES.map(c=>[c.id,c]));
+
+// Perma-trophies: earned only in hardcore, kept in META (shared by every save) and boost every save.
+const PERMA=[
+  {id:'requiem',name:'Requiem',hint:'Every flame goes out eventually.',fx:{coins:.05,power:.05}},
+  {id:'dark',name:'Into the Dark',hint:'Reach 700 m in hardcore.',fx:{power:.15},test:()=>S.stats.best>=700},
+  {id:'lamplighter',name:'Lamplighter',hint:'Keep a hardcore lantern burning for 30 minutes without losing a heart.',fx:{coins:.12},test:()=>S.hc.calm>=1800},
+  {id:'brink',name:'Back from the Brink',hint:'Restore a heart while you have only one left.',fx:{swarm:.15}},
+  {id:'midnight',name:'Midnight Miner',hint:'Break a Strata Seal while your lantern is under 10%.',fx:{crit:.05}},
+  {id:'fortune',name:'Fortune in the Dark',hint:'Find a Mythic or Exotic ore in hardcore.',fx:{luck:.2},test:()=>S.stats.maxTier>=5},
+  {id:'saint',name:'Ember Saint',hint:'Rekindle 3 times in one hardcore save.',fx:{embers:.2},test:()=>S.stats.rekindles>=3},
+  {id:'untouched',name:'Untouchable',hint:'Rekindle in hardcore without ever losing a heart.',fx:{luck:.15}},
+  {id:'heart',name:'Heart of the Mountain',hint:'Reach 3,000 m in hardcore.',fx:{power:.25,luck:.1},test:()=>S.stats.best>=3000},
+  {id:'night',name:'The Long Night',hint:'Reach 6,000 m in hardcore.',fx:{power:.5,coins:.5},test:()=>S.stats.best>=6000},
+  {id:'slayer',name:'Guardian Slayer',hint:'Defeat 10 seal guardians in hardcore.',fx:{power:.1,crit:.03},test:()=>(S.hc.guards||0)>=10},
+  {id:'hoarder',name:'Hoarder of Shadows',hint:'Hold 25 curse at once in hardcore.',fx:{luck:.1,coins:.1},test:()=>curseHeld()>=25},
+];
+// Cursed ores: in hardcore, Epic or rarer ore can drop cursed. Held curse makes the lantern burn faster,
+// cursed ore sells for 5x, and the Cursed Altar's upgrades can only be bought with it.
+const CURSE_CHANCE=0.2,CURSE_SELL=5,CURSE_W=[0,0,0,1,3,8,20];
+const CURSE_UP=[
+  {id:'pact',name:'Blood Pact',desc:'+1 maximum heart (4 total). Heals one heart now.',base:30,g:1,max:1},
+  {id:'wick',name:'Shadow Wick',desc:'Your lantern burns 8% slower per level.',base:2,g:1.6,max:5},
+  {id:'ward',name:'Ember Ward',desc:'Relighting costs 10% less per level.',base:2,g:1.6,max:5},
+  {id:'bane',name:"Guardian's Bane",desc:'Seal guardians give you 10 more seconds per level.',base:3,g:1.7,max:4},
+  {id:'hex',name:'Hexed Edge',desc:'+25% pickaxe power per level.',base:2,g:1.5,max:10},
+  {id:'fortune',name:'Cursed Fortune',desc:'+10% coins per level.',base:2,g:1.5,max:10},
+  {id:'sight',name:'Dark Sight',desc:'+10% luck per level.',base:3,g:1.5,max:10},
+];
+const PERMA_BY=Object.fromEntries(PERMA.map(p=>[p.id,p]));
+const META_KEY='lantern-deep-meta';
+let META={hc:false,perma:{}};
+const HEART='<path d="M12 21s-8.5-5.4-10.6-10.3C-.2 6.3 3.3 1.5 7.7 2.3c1.9.3 3.4 1.6 4.3 3.1.9-1.5 2.4-2.8 4.3-3.1 4.4-.8 7.9 4 6.3 8.4C20.5 15.6 12 21 12 21z"/>';
+const TROPHY='<svg viewBox="0 0 32 30" aria-hidden="true"><path fill="currentColor" d="M8 3h16v7a8 8 0 0 1-16 0z"/><path fill="none" stroke="currentColor" stroke-width="2.4" d="M8 6H4.5a4 4 0 0 0 4.5 6M24 6h3.5a4 4 0 0 1-4.5 6"/><rect fill="currentColor" x="14" y="17" width="4" height="5"/><rect fill="currentColor" x="9.5" y="22" width="13" height="4.5" rx="1.5"/></svg>';
 
 const SPECIES={
   dustmite:{name:'Dustmite',r:0,rate:.35,col:'#dcc9a5',perk:null,v:0,shape:'round'},
@@ -549,6 +718,9 @@ const ACH=[
   ['a1','Dressed for the Dark','Find an accessory while digging',()=>ACCS.some(a=>a.layer!==undefined&&S.acc[a.id])],
   ['a5','Five Stars','Upgrade an accessory to 5 stars',()=>Object.values(S.acc).some(s=>s>=MAXSTAR)],
   ['a12','Trinket Hoarder','Own 12 different accessories',()=>Object.keys(S.acc).length>=12],
+  ['sk1','Fresh Look','Open a skin crate',()=>(S.stats.crates||0)>=1],
+  ['sk10','Fashionista','Own 10 pickaxe skins',()=>Object.keys(S.skins).length>=10],
+  ['skm','Mythic Drip','Own a Mythic pickaxe skin',()=>SKINS.some(s=>s.r===5&&S.skins[s.id])],
   ['r1','Rekindled','Rekindle once',()=>S.stats.rekindles>=1],
   ['r5','Old Flame','Rekindle 5 times',()=>S.stats.rekindles>=5],
   ['r20','Eternal Ember','Rekindle 20 times',()=>S.stats.rekindles>=20],
@@ -570,7 +742,8 @@ const ACH=[
 const KEY='lantern-deep-save-v1';
 const SLOT_KEY=i=>'lantern-deep-slot-'+i;
 function freshState(){return{
-  v:2,slotName:'',coins:0,depth:0,pick:0,pickName:'Rusty Pick',inv:{},up:{},perks:{},embers:0,crit:[],slotsBought:0,eggBuys:{},freeEggs:{},codex:{},ach:{},
+  v:2,slotName:'',mode:'normal',hc:null,coins:0,depth:0,pick:0,pickName:'Rusty Pick',inv:{},up:{},perks:{},embers:0,crit:[],slotsBought:0,eggBuys:{},freeEggs:{},codex:{},ach:{},
+  skins:{default:1},skin:'default',
   acc:{},equip:[],builds:[{name:'Build 1',equip:[]},{name:'Build 2',equip:[]},{name:'Build 3',equip:[]}],
   quests:[],questSwapAt:0,buffs:[],anchor:false,sealMax:0,nextGlint:Date.now()+25000,
   settings:{sound:true,fx:true,sci:false,buy:'1'},
@@ -599,6 +772,8 @@ function loadFrom(o){
   if(!Array.isArray(S.equip))S.equip=[];
   S.equip=S.equip.filter(id=>ACC[id]&&S.acc[id]);
   if(!Array.isArray(S.builds)||S.builds.length!==3)S.builds=freshState().builds;
+  S.skins.default=1;if(!SKIN[S.skin]||!S.skins[S.skin])S.skin='default';
+  if(S.mode==='hardcore')S.hc=Object.assign(freshHc(),S.hc||{});
   // pickaxes are stored by name so new picks can be inserted between old ones
   const byName=PICKS.findIndex(p=>p.name===(oldV<2?OLD_PICKS[o.pick|0]:S.pickName));
   S.pick=byName>=0?byName:clamp(S.pick|0,0,PICKS.length-1);
@@ -611,7 +786,121 @@ function loadFrom(o){
   fillQuests();UI.last={};UI.edit=null;
 }
 function serialize(){S.blockHpFrac=B?B.hp/B.max:1;S.savedAt=Date.now();S.pickName=PICKS[S.pick].name;return JSON.stringify(S)}
-function slotRecord(){const json=serialize();return{name:S.slotName||`Slot ${CUR+1}`,savedAt:S.savedAt,best:S.stats.best,play:S.stats.play,pick:PICKS[S.pick].name,json}}
+function slotRecord(){const json=serialize();return{name:S.slotName||`Slot ${CUR+1}`,savedAt:S.savedAt,best:S.stats.best,play:S.stats.play,pick:PICKS[S.pick].name,mode:S.mode,hearts:S.hc?S.hc.hearts:null,maxHearts:S.hc?maxHearts():null,json}}
+// ---- hardcore & meta (shared by all saves)
+const HC=()=>S.mode==='hardcore'&&!!S.hc;
+const freshHc=()=>({light:100,hearts:3,calm:0,lost:0,guards:0,cursed:{},up:{},seen:{}});
+const hup=k=>(S.hc&&S.hc.up[k])||0;
+const maxHearts=()=>3+hup('pact');
+const curseHeld=()=>{if(!S.hc)return 0;let t=0;for(const id in S.hc.cursed)t+=S.hc.cursed[id]*CURSE_W[tierOf(ORE[id].n)];return t};
+const curseMult=()=>Math.min(3,1+0.1*curseHeld());
+const guardMax=()=>60+10*hup('bane');
+const cupCost=(u,L)=>Math.ceil(u.base*Math.pow(u.g,L));
+function spendCurse(cost){
+  // pay with the least valuable cursed ores first
+  const units=[];for(const id in S.hc.cursed)for(let k=0;k<S.hc.cursed[id];k++)units.push([id,CURSE_W[tierOf(ORE[id].n)]]);
+  units.sort((a,b)=>a[1]-b[1]);let paid=0;
+  for(const [id,w] of units){if(paid>=cost)break;paid+=w;if(--S.hc.cursed[id]<=0)delete S.hc.cursed[id]}
+}
+function buyCurseUp(id){
+  if(!HC())return;const u=CURSE_UP.find(x=>x.id===id),L=hup(id);if(!u||L>=u.max)return;const c=cupCost(u,L);if(curseHeld()<c)return;
+  spendCurse(c);S.hc.up[id]=L+1;if(id==='pact')S.hc.hearts=Math.min(maxHearts(),S.hc.hearts+1);
+  sfx.rare(4);toast(`The altar accepts. <b style="color:#c08bff">${esc(u.name)}</b> ${u.max>1?'Lv '+(L+1):''}`,'#8a3dff');
+}
+function gainCursed(o,n){
+  S.hc.cursed[o.id]=(S.hc.cursed[o.id]||0)+n;
+  S.stats.found[o.id]=(S.stats.found[o.id]||0)+n;S.codex[o.id]=1;
+  const t=tierOf(o.n);if(t>S.stats.maxTier)S.stats.maxTier=t;
+  if(!S.hc.seen.cursed){S.hc.seen.cursed=1;showCurseIntro(o);return}
+  banner('Cursed ore!',`Cursed ${o.name}`,`+${CURSE_W[t]*n} curse · your lantern burns faster while you hold it`,'#a35cff');tone(110,.5,'sawtooth',.04,55);
+}
+function sellCursed(id){
+  const n=S.hc.cursed[id]||0;if(!n)return;delete S.hc.cursed[id];
+  const v=ORE[id].v*CURSE_SELL*n*D.coin;gainCoins(v);sfx.sell();floatText('+'+fmt(v)+' coins','#c08bff',W/2,H*0.2,true);
+}
+function loadMeta(){try{const m=JSON.parse(localStorage.getItem(META_KEY)||'null');if(m)META={hc:!!m.hc,perma:m.perma||{}}}catch(e){}}
+function saveMeta(){try{localStorage.setItem(META_KEY,JSON.stringify(META))}catch(e){}if(CL.ready)CL.db.doc('data/users/'+CL.uid+'/meta').set(META).catch(()=>{})}
+function permaStats(){const t={};for(const id in META.perma){const p=PERMA_BY[id];if(!p)continue;for(const k in p.fx)t[k]=(t[k]||0)+p.fx[k]}return t}
+function unlockPerma(id){
+  if(META.perma[id]||!PERMA_BY[id])return;const p=PERMA_BY[id];META.perma[id]=1;saveMeta();
+  banner('Perma-trophy unlocked!',p.name,Object.keys(p.fx).map(k=>fxText(k,p.fx[k])).join(' · ')+' in every save','#ffc53d');sfx.rare(5);
+}
+function checkMeta(){
+  if(!META.hc&&S.stats.rekindles>=5){META.hc=true;saveMeta();banner('Unlocked','Hardcore mode','Start a new save slot to try it.','#ff5f7a');sfx.rare(4)}
+  if(HC())for(const p of PERMA)if(p.test&&!META.perma[p.id]&&p.test())unlockPerma(p.id);
+}
+const heartsHtml=(n,max)=>Array.from({length:max||3},(_,i)=>`<svg class="hrt ${i<n?'on':'off'}" viewBox="0 0 24 22" aria-hidden="true">${HEART}</svg>`).join('');
+const lightDrain=()=>100/360*(1+0.1*layerAt(S.depth))*curseMult()*(1-0.08*hup('wick'));
+const relightCost=pct=>nice(Math.max(3,expBlockCoins()*0.45*pct*(1+0.35*layerAt(S.depth))*(1-0.1*hup('ward'))));
+function hcTick(dt){
+  const h=S.hc;
+  // seal guardians: break the seal before the timer runs out
+  if(B.type==='seal'){
+    if(!h.seen.guard){h.seen.guard=1;showGuardIntro();return}
+    if(B.guard==null)B.guard=guardMax();
+    const before=B.guard;B.guard-=dt;
+    if(B.guard<10&&Math.ceil(before)!==Math.ceil(B.guard))tone(880,.05,'square',.02);
+    if(B.guard<=0){B.guard=guardMax();loseHeart('guard');if(!RUN)return}
+  }
+  h.calm+=dt;h.light-=lightDrain()*dt;
+  if(h.light<20&&h.light>0&&throttle('dim',25000))toast('Your lantern is fading. Relight it in the Lantern tab!','#ff5f7a',5000);
+  if(h.light<=0){h.light=0;loseHeart('dark')}
+}
+// Time away dims the lantern too, but it can't take a heart while you're gone.
+function hcOffline(secs){if(!HC()||!(secs>0))return;S.hc.light=Math.max(5,S.hc.light-lightDrain()*Math.min(secs,8*3600))}
+function relight(v){
+  if(!HC())return;const L=S.hc.light,pct=v==='full'?100-L:Math.min(25,100-L);if(pct<0.5)return;
+  const c=relightCost(pct);if(S.coins<c)return;S.coins-=c;S.hc.light=Math.min(100,L+pct);sfx.glint();
+}
+function loseHeart(reason){
+  const h=S.hc;h.hearts--;h.lost++;h.calm=0;FX.shake=20;
+  if(S.settings.fx)addFx({type:'flash',col:'#ff2a4a',a:.45,life:.6,max:.6});
+  tone(200,.6,'sawtooth',.05,60);
+  if(h.hearts<=0){gameOver();return}
+  const left=`${h.hearts} ${h.hearts===1?'heart':'hearts'} left`;
+  if(reason==='guard')banner('The seal guardian struck','A heart went out',`${left} · the timer resets`,'#ff5f7a');
+  else{h.light=40;banner('Your lantern went dark','A heart went out',left,'#ff5f7a')}
+}
+function sacrifice(i){
+  if(!HC()||S.hc.hearts>=maxHearts())return;const c=S.crit[i];if(!c||SPECIES[c.s].r<4)return;
+  if(!confirmStep('sac'+i))return;
+  if(S.hc.hearts===1)unlockPerma('brink');
+  S.hc.hearts++;S.crit.splice(i,1);VIS.splice(i,1);UI.edit=null;
+  banner('A heart returns',`${c.n||SPECIES[c.s].name} gave its light`,`${S.hc.hearts} hearts`,'#ff5f7a');sfx.hatch();
+}
+// ---- hardcore popups (each shows once per save; hardcore dangers pause while a popup is open)
+function showHcIntro(){
+  S.hc.seen.intro=1;
+  showModal(`<div class="intro"><div class="hcb" style="justify-content:center">${heartsHtml(3)}</div><h2>Hardcore rules</h2><p>Read these before you dig. Nothing burns down while this is open.</p><ul class="rules">
+  <li><b>Three hearts.</b> Lose all three and this save is erased for good.</li>
+  <li><b>Your lantern burns down.</b> The screen darkens as it fades. Relight it with coins in the Lantern tab; it costs more the deeper you are. If it goes dark, you lose a heart.</li>
+  <li><b>Seal guardians.</b> Every Strata Seal has a guardian. Break the seal before its timer runs out or lose a heart.</li>
+  <li><b>Cursed ores.</b> Epic or rarer ore can drop cursed. Holding it makes your lantern burn faster, but it sells for ${CURSE_SELL}× and it's the only way to buy Cursed Altar upgrades.</li>
+  <li><b>Healing.</b> Sacrifice a Legendary or rarer glowkin in the Lantern tab to restore a heart.</li>
+  <li><b>Everything pays less.</b> Coins, luck, glowkin and gear are all weaker here.</li>
+  <li><b>Perma-trophies.</b> Hardcore feats unlock trophies that boost every save you have.</li>
+  <li><b>Time away</b> still dims the lantern, but it can't take a heart while you're gone.</li></ul>
+  <button class="btn buy" data-act="close">Light the lantern</button></div>`,'wide');
+}
+function showGuardIntro(){
+  showModal(`<div class="intro"><div class="lbl t4" style="font-weight:900;letter-spacing:.14em;text-transform:uppercase;font-size:12px">Strata Seal</div><h2>A guardian wakes</h2><p>This seal is guarded. Break it within <b>${guardMax()} seconds</b> or the guardian takes a heart. If that happens the timer resets and you can try again.</p>
+  <ul class="rules"><li>The timer shows on the seal and in its health bar.</li><li>Seals have 10× HP, so save up a Frenzy glint or upgrade before you push.</li><li>Guardian's Bane at the Cursed Altar gives you more time.</li><li>The timer waits until you close this.</li></ul>
+  <button class="btn buy" data-act="close">Face the guardian</button></div>`,'wide');
+}
+function showCurseIntro(o){
+  showModal(`<div class="intro"><div class="lbl" style="color:#c08bff;font-weight:900;letter-spacing:.14em;text-transform:uppercase;font-size:12px">${RAR[tierOf(o.n)]} · cursed</div><h2>Cursed ${esc(o.name)}</h2><p>Some ore comes out of the rock wrong. It's yours now, and it pulls at your light.</p>
+  <ul class="rules"><li><b>While you hold cursed ore, your lantern burns faster.</b> Each point of curse adds 10%, up to 3× speed.</li><li><b>Sell it for ${CURSE_SELL}×</b> its normal price from the Ore bag when you need coins fast.</li>
+  <li><b>Or keep it for the Cursed Altar</b> in the Upgrades tab. Its upgrades only take cursed ore: a fourth heart, a slower lantern, more time against guardians and more.</li><li>Rarer ore carries more curse: Epic 1, Legendary 3, Mythic 8, Exotic 20.</li></ul>
+  <button class="btn buy" data-act="close">Keep it… for now</button></div>`,'wide');
+  tone(110,.6,'sawtooth',.04,55);
+}
+function gameOver(){
+  const name=S.slotName||'This save',best=S.stats.best,play=S.stats.play,i=CUR;
+  unlockPerma('requiem');
+  RUN=false;FX.glint=null;if(i!==null)deleteSlot(i);CUR=null;
+  const got=PERMA.filter(p=>META.perma[p.id]).length;
+  showModal(`<h2>Your lantern went out</h2><p>“${esc(name)}” is gone. You reached ${fmt(best)} m and survived ${dur(play)}.</p><p>Perma-trophies stay with you in every save. You have ${got} of ${PERMA.length}.</p><button class="btn buy" data-act="gameover">Back to the surface</button>`);
+}
 function saveLocal(){if(CUR===null||!RUN)return;const rec=slotRecord();SLOTS[CUR]=rec;try{localStorage.setItem(SLOT_KEY(CUR),JSON.stringify(rec))}catch(e){}}
 function readLocalSlots(){
   for(let i=0;i<3;i++){try{const raw=localStorage.getItem(SLOT_KEY(i));SLOTS[i]=raw?JSON.parse(raw):null}catch(e){SLOTS[i]=null}}
@@ -635,22 +924,26 @@ function buffMult(){
 const accSlots=()=>3+(S.stats.best>=700?1:0)+(S.stats.best>=3000?1:0);
 const starMult=s=>1+0.25*(s-1);
 function accFx(a,stars){const o={};for(const k in a.fx){const v=a.fx[k];o[k]=v>0?v*starMult(stars||1):v}return o}
-function accStats(){const t={};for(const id of S.equip){const a=ACC[id];if(!a||!S.acc[id])continue;const f=accFx(a,S.acc[id]);for(const k in f)t[k]=(t[k]||0)+f[k]}return t}
+// hardcore halves the upside of gear (penalties stay full)
+function accStats(){const t={},hm=S.mode==='hardcore'?0.5:1;for(const id of S.equip){const a=ACC[id];if(!a||!S.acc[id])continue;const f=accFx(a,S.acc[id]);for(const k in f)t[k]=(t[k]||0)+(f[k]>0?f[k]*hm:f[k])}return t}
 function derive(){
   const p=PICKS[S.pick],up=S.up,pk=S.perks,A=accStats(),am=k=>Math.max(0.1,1+(A[k]||0));
+  const hcm=S.mode==='hardcore',PM=permaStats(),pm=k=>1+(PM[k]||0);
+  // Cursed Altar upgrades (hardcore only) fold into the perma multipliers
+  if(hcm&&S.hc){PM.power=(PM.power||0)+0.25*hup('hex');PM.coins=(PM.coins||0)+0.1*hup('fortune');PM.luck=(PM.luck||0)+0.1*hup('sight')}
   let cPow=0,cLuck=0,cCoin=0,cCrit=0,cRoll=0,hits=0;
   for(const c of S.crit){const sp=SPECIES[c.s];if(!sp)continue;
     hits+=sp.rate*(1+0.3*(c.l-1))*(c.g?2:1);
-    const v=sp.v*(1+0.08*(c.l-1))*(c.g?1.5:1)*am('kin');
+    const v=sp.v*(1+0.08*(c.l-1))*(c.g?1.5:1)*am('kin')*(hcm?0.5:1);
     switch(sp.perk){case'power':cPow+=v;break;case'luck':cLuck+=v;break;case'coins':cCoin+=v;break;case'crit':cCrit+=v;break;case'roll':cRoll+=v;break;case'all':cPow+=v;cLuck+=v;cCoin+=v;break}}
   const unspent=1+0.02*S.embers,ach=1+0.03*achCount(),b=buffMult();
-  const power=p.p*Math.pow(1.08,up.sharp||0)*Math.pow(1.3,pk.edge||0)*unspent*ach*(1+cPow)*am('power')*b.power;
-  const luck=p.l*(1+0.08*(up.charm||0))*Math.pow(1.2,pk.luck||0)*(1+cLuck)*(1+0.01*codexCount())*am('luck')*b.luck;
-  const coin=(1+0.1*(up.merch||0))*Math.pow(1.35,pk.purse||0)*unspent*ach*(1+cCoin)*am('coins')*b.coin;
+  const power=p.p*Math.pow(1.08,up.sharp||0)*Math.pow(1.3,pk.edge||0)*unspent*ach*(1+cPow)*am('power')*pm('power')*b.power;
+  const luck=p.l*(1+0.08*(up.charm||0))*Math.pow(1.2,pk.luck||0)*(1+cLuck)*(1+0.01*codexCount())*am('luck')*pm('luck')*(hcm?0.75:1)*b.luck;
+  const coin=(1+0.1*(up.merch||0))*Math.pow(1.35,pk.purse||0)*unspent*ach*(1+cCoin)*am('coins')*pm('coins')*(hcm?0.5:1)*b.coin;
   const extra=0.06*(up.roll||0)+0.25*(pk.haul||0)+cRoll+(A.roll||0);
-  const critC=Math.min(0.75,0.015*(up.crit||0)+cCrit+(A.crit||0)),critM=5+0.5*(up.critdmg||0)+(A.critdmg||0);
-  const autoHits=hits*(1+0.1*(up.oil||0))*am('swarm')*b.swarm;
-  return{power,luck,coin,extra,critC,critM,autoHits,autoDps:power*autoHits*(1+critC*(critM-1)),geode:0.02+0.006*(up.geode||0)+(A.geode||0),offline:0.5*am('offline'),glint:am('glint'),acc:A,buffs:b};
+  const critC=Math.min(0.75,0.015*(up.crit||0)+cCrit+(A.crit||0)+(PM.crit||0)),critM=5+0.5*(up.critdmg||0)+(A.critdmg||0);
+  const autoHits=hits*(1+0.1*(up.oil||0))*am('swarm')*pm('swarm')*(hcm?0.6:1)*b.swarm;
+  return{power,luck,coin,extra,critC,critM,autoHits,autoDps:power*autoHits*(1+critC*(critM-1)),geode:0.02+0.006*(up.geode||0)+(A.geode||0),offline:0.5*am('offline')*(hcm?0.5:1),glint:am('glint'),acc:A,buffs:b};
 }
 // What an ordinary block pays: only this layer's everyday ores count. Jackpot ores (1 in 250+)
 // would dominate the average and make every reward based on it thousands of times too big.
@@ -693,7 +986,11 @@ function breakBlock(){
   const got={},baseN=b.type==='seal'?5:b.type==='geode'?0:1;
   if(baseN)got[L.rock]=baseN;
   for(let i=0;i<rolls;i++){const o=rollOre(li,lk);if(o)got[o.id]=(got[o.id]||0)+1}
-  const al=Math.sqrt(D.luck)*(b.type==='geode'?3:b.type==='seal'?5:1);
+  const al=Math.sqrt(D.luck)*(b.type==='geode'?3:b.type==='seal'?5:1)*(HC()?0.5:1);
+  if(b.type==='seal'&&HC()){if(S.hc.light<10)unlockPerma('midnight');S.hc.guards=(S.hc.guards||0)+1;toast(`Seal guardian defeated with ${Math.ceil(b.guard==null?guardMax():b.guard)}s to spare.`,'#ffc53d')}
+  if(HC())for(const id of Object.keys(got)){const o=ORE[id];if(o.n<250)continue;
+    let c=0;for(let k=0;k<got[id];k++)if(rnd()<CURSE_CHANCE)c++;
+    if(c){got[id]-=c;if(got[id]<=0)delete got[id];gainCursed(o,c)}}
   for(const a of ACC_BY_LAYER[li])if(rnd()<al/a.n)gainAcc(a,false);
   FX.breaks++;
   let shown=0;
@@ -707,6 +1004,7 @@ function breakBlock(){
   S.stats.runBest=Math.max(S.stats.runBest,S.depth);
   if(S.depth>S.stats.best){S.stats.best=S.depth;const nl=layerAt(S.depth);if(LAYERS[nl].start===S.depth&&S.depth>prevBest)banner('Now entering',LAYERS[nl].name,`${fmt(S.depth)} m below the surface`,'#ffb83f')}
   burst(b,ids);
+  if(curSkin().split&&S.settings.fx&&RT.c&&FX.breaks<=2&&!FX.ghost)FX.ghost={c:RT.c,size:blockSize(),a:rnd()*Math.PI,life:.55,max:.55};
   B=makeBlock(S.depth);
   FX.descend=S.anchor?0.55:0;
   if(FX.breaks<=1)sfx.brk();
@@ -795,13 +1093,14 @@ function elevator(li){
   toast(`Elevator down to ${esc(L.name)} (${fmt(L.start)} m).`);
 }
 // rekindle
-function emberGain(){const d=S.stats.runBest;return d<300?0:Math.floor(Math.pow(d/100,1.7))}
+function emberGain(){const d=S.stats.runBest;return d<300?0:Math.floor(Math.pow(d/100,1.7)*(1+(permaStats().embers||0))*(HC()?0.6:1))}
 function rekindle(){
   const g=emberGain();if(!g)return;if(!confirmStep('rekindle'))return;
   S.embers+=g;S.stats.embersTotal+=g;S.stats.rekindles++;
   const st=START[S.perks.start||0];
   S.coins=0;S.inv={};S.up={};S.pick=PI(st.p);S.depth=st.d;S.sealMax=st.d;S.stats.runBest=st.d;S.eggBuys={};S.buffs=[];S.anchor=false;
   for(const c of S.crit)c.l=1;
+  if(HC()){if(S.hc.lost===0)unlockPerma('untouched');S.hc.light=100}
   S.quests=[];D=derive();B=makeBlock(S.depth);fillQuests();FX.scroll=S.depth*46;
   banner('Rekindled',`+${fmt(g)} embers`,'Your glowkin came with you, back at level 1.','#ff8a2a');sfx.seal();
 }
@@ -897,7 +1196,7 @@ const sfx={
 // ================= canvas =================
 const cv=$('#cv'),cx=cv.getContext('2d');
 let W=0,H=0,DPR=1;
-const FX={parts:[],texts:[],shake:0,flash:0,punch:0,descend:1,motes:[],scroll:0,glint:null,breaks:0,lastGlintX:0,lastGlintY:0};
+const FX={parts:[],texts:[],fx:[],ghost:null,t:0,trio:0,shake:0,flash:0,punch:0,descend:1,motes:[],scroll:0,glint:null,breaks:0,lastGlintX:0,lastGlintY:0};
 const RT={key:'',c:null};
 function resize(){const r=cv.getBoundingClientRect();if(!r.width)return;DPR=Math.min(2,window.devicePixelRatio||1);W=r.width;H=r.height;cv.width=Math.round(W*DPR);cv.height=Math.round(H*DPR);cx.setTransform(DPR,0,0,DPR,0,0);RT.key=''}
 new ResizeObserver(resize).observe(cv);
@@ -951,21 +1250,86 @@ function ensureTexture(size){const k=B.seed+'|'+Math.round(size)+'|'+DPR;if(RT.k
 function spark(x,y,col,spd){if(FX.parts.length>420)return;const a=rnd()*Math.PI*2,v=(0.3+rnd())*(spd||120);FX.parts.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,life:0.4+rnd()*0.4,max:0.8,col,s:1+rnd()*2,g:60,k:'spark'})}
 function chunk(x,y,col,spd){if(FX.parts.length>420)return;const a=-Math.PI/2+(rnd()-.5)*2.6,v=(0.4+rnd())*(spd||220);FX.parts.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,life:0.6+rnd()*0.5,max:1.1,col,s:2+rnd()*4,g:700,k:'chunk',r:rnd()*6,vr:(rnd()-.5)*12})}
 function floatText(txt,col,x,y,big){if(FX.texts.length>40)FX.texts.shift();FX.texts.push({txt,col,x,y,vy:big?-40:-55,life:big?1.6:1.1,max:big?1.6:1.1,big})}
+// ---- skin effect helpers
+const curSkin=()=>(UI.preview&&UI.preview.until>Date.now()&&SKIN[UI.preview.id])||SKIN[S.skin]||SKIN.default;
+const layerCols=()=>{const L=LAYERS[B.li];return[L.rockA,L.rockB,shade(L.rockA,0.3)]};
+function P(o){if(FX.parts.length>520)return;FX.parts.push(Object.assign({life:1,max:1,g:0,r:rnd()*6,vr:0,s:3,vx:0,vy:0},o))}
+function addFx(o){if(FX.fx.length>60)FX.fx.shift();FX.fx.push(Object.assign({life:.4,max:.4,delay:0},o))}
+const confetto=(x,y,v)=>({k:'confetti',x,y,vx:(rnd()-.5)*v*1.2,vy:-v*(0.5+rnd()*0.7),g:500,drag:.3,life:1.6+rnd()*.6,max:2.2,s:5+rnd()*4,vr:(rnd()-.5)*14,col:CONF[(rnd()*CONF.length)|0]});
+const shard=(x,y,v)=>({k:'shard',x,y,vx:(rnd()-.5)*v,vy:-v*0.3-rnd()*v*0.7,g:700,life:.9,max:.9,s:4+rnd()*6,vr:(rnd()-.5)*12,col:rnd()<.5?'#c8f4ff':'#ffffff'});
+const flake=(x,y)=>({k:'flake',x,y,vx:(rnd()-.5)*50,vy:-20-rnd()*40,g:25,drag:.5,life:2.2,max:2.2,s:3+rnd()*3,vr:(rnd()-.5)*3,col:'#ffffff'});
+const flame=(x,y,v)=>({k:'flame',x,y,vx:(rnd()-.5)*v,vy:-50-rnd()*120,g:-160,life:.7,max:.7,s:6+rnd()*7,col:rnd()<.5?'#ff8a2a':'#ffd36b'});
+const petal=(x,y,v)=>({k:'petal',x,y,vx:(rnd()-.5)*v,vy:-v*.3-rnd()*v*.5,g:60,drag:.35,life:2.2+rnd(),max:3.2,s:4+rnd()*3,vr:(rnd()-.5)*5,col:rnd()<.5?'#ffb7d5':'#ffe0ec',sway:1+rnd()*6});
+const orbiter=(x,y,r,col,life)=>({k:'spark',orbit:true,ocx:x,ocy:y,oa:rnd()*Math.PI*2,or:r,ow:6+rnd()*4,life,max:life,s:1.4+rnd()*1.6,col,x,y});
+const slash=(x,y,len,col,delay)=>addFx({type:'slash',x,y,a:rnd()*Math.PI,len,bow:(rnd()<.5?-1:1)*len*(.08+rnd()*.12),w:7,col,life:.32,max:.32,delay:delay||0});
+const shatterLines=(n,a,b)=>Array.from({length:n},(_,i)=>[i/n*Math.PI*2+(rnd()-.5)*.3,a+rnd()*(b-a)]);
+function bolt(x0,y0,x1,y1,col,delay){const pts=[[x0,y0]],n=9;for(let i=1;i<n;i++){const t=i/n;pts.push([x0+(x1-x0)*t+(rnd()-.5)*40,y0+(y1-y0)*t+(rnd()-.5)*14])}pts.push([x1,y1]);addFx({type:'bolt',pts,col,life:.22,max:.22,delay:delay||0})}
+
 function hitFx(x,y,crit,dmg){
   FX.shake=Math.min(14,FX.shake+(crit?10:3));FX.flash=crit?0.35:0.14;FX.punch=crit?0.06:0.03;
   if(!S.settings.fx)return;
-  const L=LAYERS[B.li];
-  for(let i=0;i<(crit?10:5);i++)chunk(x,y,rnd()<.5?L.rockA:L.rockB,crit?300:200);
-  for(let i=0;i<(crit?12:4);i++)spark(x,y,crit?'#ffd27a':'#fff1d0',crit?260:140);
+  const sk=curSkin(),c=sk.chunk||layerCols();
+  if(!sk.noChips){
+    for(let i=0;i<(crit?10:5);i++)chunk(x,y,c[(rnd()*c.length)|0],crit?300:200);
+    for(let i=0;i<(crit?12:4);i++)spark(x,y,crit?'#ffd27a':'#fff1d0',crit?260:140);
+  }
+  if(sk.hit)sk.hit(x,y,crit);
   floatText((crit?'CRIT ':'')+fmt(dmg),crit?'#ffb83f':'#f2e8d2',x+(rnd()-.5)*20,y-10,crit);
 }
 function burst(b,ids){
   if(!S.settings.fx||FX.breaks>3)return;
-  const L=LAYERS[b.li],cx0=W/2,cy0=H*0.52,s=blockSize();
-  const n=b.type==='seal'?46:b.type==='geode'?34:18;
-  for(let i=0;i<n;i++)chunk(cx0+(rnd()-.5)*s*0.7,cy0+(rnd()-.5)*s*0.7,b.type==='geode'?(rnd()<.5?'#b884ff':'#8ff0ff'):(rnd()<.5?L.rockA:L.rockB),320);
+  const L=LAYERS[b.li],cx0=W/2,cy0=H*0.52,s=blockSize(),sk=curSkin(),c=sk.chunk||[L.rockA,L.rockB];
+  if(!sk.noBurst){const n=b.type==='seal'?46:b.type==='geode'?34:18;
+    for(let i=0;i<n;i++)chunk(cx0+(rnd()-.5)*s*0.7,cy0+(rnd()-.5)*s*0.7,b.type==='geode'?(rnd()<.5?'#b884ff':'#8ff0ff'):c[(rnd()*c.length)|0],320)}
   for(const id of ids){const o=ORE[id];if(!o.n)continue;for(let i=0;i<5;i++)spark(cx0+(rnd()-.5)*s*0.4,cy0+(rnd()-.5)*s*0.4,o.col,220)}
   if(b.type==='seal')for(let i=0;i<40;i++)spark(cx0,cy0,'#ffb83f',380);
+  // big break effects are rate-limited so glowkin breaking blocks every frame don't flood the screen
+  if(sk.brk&&throttle('skbrk',sk.heavy?1600:sk.r>=4?600:150))sk.brk(cx0,cy0,s,b);
+}
+function drawPart(p){
+  const g=cx;g.fillStyle=p.col;
+  switch(p.k){
+    case'spark':g.beginPath();g.arc(p.x,p.y,p.s,0,7);g.fill();break;
+    case'pixel':g.fillRect(p.x-p.s/2,p.y-p.s/2,p.s,p.s);break;
+    case'seed':g.save();g.translate(p.x,p.y);g.rotate(p.r);g.beginPath();g.ellipse(0,0,p.s,p.s*.6,0,0,7);g.fill();g.restore();break;
+    case'bubble':g.strokeStyle=p.col;g.lineWidth=1.3;g.beginPath();g.arc(p.x,p.y,p.s,0,7);g.stroke();g.fillStyle='rgba(255,255,255,.7)';g.beginPath();g.arc(p.x-p.s*.35,p.y-p.s*.35,p.s*.22,0,7);g.fill();break;
+    case'confetti':{const f=Math.abs(Math.cos(p.r*1.7));g.save();g.translate(p.x,p.y);g.rotate(p.r);g.fillRect(-p.s/2,-p.s*.3*f,p.s,p.s*.6*f+.5);g.restore();break}
+    case'shard':g.save();g.translate(p.x,p.y);g.rotate(p.r);g.beginPath();g.moveTo(0,-p.s);g.lineTo(p.s*.45,p.s*.6);g.lineTo(-p.s*.45,p.s*.6);g.closePath();g.fill();g.restore();break;
+    case'flake':g.save();g.translate(p.x,p.y);g.rotate(p.r);g.strokeStyle=p.col;g.lineWidth=1.2;g.beginPath();for(let k=0;k<3;k++){const a=k*Math.PI/3;g.moveTo(Math.cos(a)*p.s,Math.sin(a)*p.s);g.lineTo(-Math.cos(a)*p.s,-Math.sin(a)*p.s)}g.stroke();g.restore();break;
+    case'petal':g.save();g.translate(p.x,p.y);g.rotate(p.r);g.beginPath();g.ellipse(0,0,p.s,p.s*.55,0,0,7);g.fill();g.restore();break;
+    case'flame':{const k=clamp(p.life/p.max,0,1),r=p.s*(0.4+0.6*k);g.save();g.globalCompositeOperation='lighter';const gr=g.createRadialGradient(p.x,p.y,0,p.x,p.y,r);gr.addColorStop(0,'rgba(255,250,220,.9)');gr.addColorStop(.4,p.col);gr.addColorStop(1,'rgba(255,80,0,0)');g.fillStyle=gr;g.beginPath();g.arc(p.x,p.y,r,0,7);g.fill();g.restore();break}
+    case'melon':g.save();g.translate(p.x,p.y);g.rotate(p.r);
+      for(const [k,col] of [[1,'#2e8a3a'],[.86,'#e8ffd8'],[.78,'#ff4d6a']]){g.fillStyle=col;g.beginPath();g.arc(0,0,p.s*k,0,Math.PI);g.closePath();g.fill()}
+      g.fillStyle='#1a1410';for(const [sx,sy] of [[-.4,.25],[0,.45],[.4,.25]]){g.beginPath();g.ellipse(sx*p.s,sy*p.s,1.6,1,0,0,7);g.fill()}g.restore();break;
+    default:g.save();g.translate(p.x,p.y);g.rotate(p.r);g.fillRect(-p.s/2,-p.s/2,p.s,p.s);g.restore();
+  }
+}
+const easeOut=p=>1-Math.pow(1-p,3);
+function drawFx(dt){
+  for(let i=FX.fx.length-1;i>=0;i--){const f=FX.fx[i];
+    if(f.delay>0){f.delay-=dt;continue}
+    f.life-=dt;if(f.life<=0){FX.fx.splice(i,1);continue}
+    const p=1-f.life/f.max;cx.save();
+    switch(f.type){
+      case'slash':{const rev=Math.min(1,p/0.25),a=1-Math.max(0,(p-0.25)/0.75),dx=Math.cos(f.a)*f.len/2,dy=Math.sin(f.a)*f.len/2;
+        const x0=f.x-dx,y0=f.y-dy,x1=x0+2*dx*rev,y1=y0+2*dy*rev,mx=(x0+x1)/2-Math.sin(f.a)*f.bow*rev,my=(y0+y1)/2+Math.cos(f.a)*f.bow*rev;
+        cx.globalAlpha=a;cx.lineCap='round';cx.beginPath();cx.moveTo(x0,y0);cx.quadraticCurveTo(mx,my,x1,y1);
+        cx.shadowColor=f.col;cx.shadowBlur=18;cx.strokeStyle=f.col;cx.lineWidth=f.w;cx.stroke();cx.shadowBlur=0;cx.strokeStyle='#fff';cx.lineWidth=f.w*.35;cx.stroke();break}
+      case'bolt':cx.globalAlpha=1-p;cx.lineJoin='round';cx.beginPath();f.pts.forEach((q,k)=>cx[k?'lineTo':'moveTo'](q[0],q[1]));
+        cx.shadowColor=f.col;cx.shadowBlur=16;cx.strokeStyle=f.col;cx.lineWidth=5;cx.stroke();cx.shadowBlur=0;cx.strokeStyle='#fff';cx.lineWidth=1.8;cx.stroke();break;
+      case'orb':{if(f.vx)f.x+=f.vx*dt;const r=f.r*(f.grow?0.4+0.6*Math.min(1,p*3):1);cx.globalCompositeOperation='lighter';cx.globalAlpha=1-p*p;
+        const gr=cx.createRadialGradient(f.x,f.y,0,f.x,f.y,r*1.6);gr.addColorStop(0,'rgba(255,255,255,.95)');gr.addColorStop(.3,f.col);gr.addColorStop(1,rgba(f.col,0));cx.fillStyle=gr;cx.beginPath();cx.arc(f.x,f.y,r*1.6,0,7);cx.fill();break}
+      case'ring':{const r=f.r0+(f.r1-f.r0)*easeOut(p);cx.globalAlpha=1-p;cx.strokeStyle=f.col;cx.lineWidth=Math.max(.5,f.w*(1-p));cx.shadowColor=f.col;cx.shadowBlur=12;cx.beginPath();cx.arc(f.x,f.y,r,0,7);cx.stroke();break}
+      case'disc':{const r=f.r1*easeOut(p);cx.globalCompositeOperation='lighter';cx.globalAlpha=(1-p)*.9;const gr=cx.createRadialGradient(f.x,f.y,0,f.x,f.y,r);gr.addColorStop(0,'rgba(255,240,255,.9)');gr.addColorStop(.5,rgba(f.col,.7));gr.addColorStop(1,rgba(f.col,0));cx.fillStyle=gr;cx.beginPath();cx.arc(f.x,f.y,r,0,7);cx.fill();break}
+      case'hole':{const r=f.r*(p<.7?easeOut(p/.7):1-(p-.7)/.3);cx.fillStyle='#000';cx.shadowColor='#b884ff';cx.shadowBlur=20;cx.beginPath();cx.arc(f.x,f.y,Math.max(0,r),0,7);cx.fill();cx.shadowBlur=0;cx.strokeStyle='rgba(255,180,110,.8)';cx.lineWidth=2;cx.beginPath();cx.arc(f.x,f.y,Math.max(0,r)*1.08,0,7);cx.stroke();break}
+      case'shatter':cx.globalAlpha=1-p;cx.strokeStyle=f.col;cx.lineWidth=1.4;cx.beginPath();for(const [a,l] of f.lines){cx.moveTo(f.x,f.y);cx.lineTo(f.x+Math.cos(a)*l*easeOut(Math.min(1,p*4)),f.y+Math.sin(a)*l*easeOut(Math.min(1,p*4)))}cx.stroke();break;
+      case'domain':{const env=p<.15?p/.15:1-(p-.15)/.85;cx.fillStyle=`rgba(8,0,18,${.8*env})`;cx.fillRect(0,0,W,H);
+        const gr=cx.createRadialGradient(f.x,f.y,Math.min(W,H)*.2,f.x,f.y,Math.max(W,H)*.75);gr.addColorStop(0,'rgba(150,80,255,0)');gr.addColorStop(1,`rgba(150,80,255,${.45*env})`);cx.fillStyle=gr;cx.fillRect(0,0,W,H);
+        cx.globalAlpha=env;cx.strokeStyle='rgba(226,204,255,.9)';cx.lineWidth=1.5;cx.beginPath();for(const [a,l] of f.lines){const e=easeOut(Math.min(1,p*3));cx.moveTo(f.x,f.y);cx.lineTo(f.x+Math.cos(a)*l*e,f.y+Math.sin(a)*l*e)}cx.stroke();break}
+      case'flash':cx.globalAlpha=(1-p)*f.a;cx.fillStyle=f.col;cx.fillRect(0,0,W,H);break;
+    }
+    cx.restore();
+  }
 }
 
 function wallX(y,ph){return 0.12+0.04*Math.sin(y*0.009+ph)+0.02*Math.sin(y*0.031+ph*2.1)+0.01*Math.sin(y*0.087+ph*0.7)}
@@ -1036,7 +1400,8 @@ function updCritters(dt,t){
 }
 function draw(dt,t){
   if(!W||!B)return;
-  const L=LAYERS[B.li],s=blockSize(),cx0=W/2,cy0=H*0.52;
+  FX.t=t;
+  const L=LAYERS[B.li],s=blockSize(),cx0=W/2,cy0=H*0.52,sk=curSkin();
   const target=S.depth*46;if(Math.abs(target-FX.scroll)>3000)FX.scroll=target;FX.scroll+=(target-FX.scroll)*Math.min(1,dt*6);
   let g=cx.createLinearGradient(0,0,0,H);g.addColorStop(0,L.sky[0]);g.addColorStop(1,L.sky[1]);cx.fillStyle=g;cx.fillRect(0,0,W,H);
   drawWalls(L);
@@ -1056,17 +1421,35 @@ function draw(dt,t){
   const frac=1-B.hp/B.max;
   if(frac>0.02){cx.lineCap='round';cx.lineJoin='round';
     B.cracks.forEach((cr,i)=>{const start=i*0.1;if(frac<=start)return;const segs=Math.min(cr.length-1,Math.ceil((frac-start)/(1-start)*(cr.length-1)));
-      for(const [w,col] of [[3.2,'rgba(0,0,0,.55)'],[1.1,'rgba(255,240,210,.18)']]){cx.strokeStyle=col;cx.lineWidth=w;cx.beginPath();for(let k=0;k<=segs;k++){const p=cr[k];cx[k?'lineTo':'moveTo'](p[0]*s,p[1]*s)}cx.stroke()}})}
+      const ck=sk.crack==='rainbow'?`hsl(${(t*120+i*40)%360},100%,70%)`:(sk.crack||'rgba(255,240,210,.18)');
+      for(const [w,col,glow] of [[3.2,'rgba(0,0,0,.55)',0],[sk.crack?1.8:1.1,ck,sk.crack?8:0]]){cx.strokeStyle=col;cx.lineWidth=w;cx.shadowColor=col;cx.shadowBlur=glow;cx.beginPath();for(let k=0;k<=segs;k++){const p=cr[k];cx[k?'lineTo':'moveTo'](p[0]*s,p[1]*s)}cx.stroke()}
+      cx.shadowBlur=0})}
   if(FX.flash>0.01){cx.fillStyle=`rgba(255,245,220,${FX.flash})`;rr(cx,-s/2,-s/2,s,s,s*0.17);cx.fill()}
   cx.restore();
+  // seal guardian countdown ring
+  if(HC()&&B.type==='seal'&&B.guard!=null){const f=clamp(B.guard/guardMax(),0,1),urgent=B.guard<15,col=urgent?'#ff4d6a':'#ffb83f';
+    cx.save();cx.lineCap='round';cx.lineWidth=6;cx.strokeStyle='rgba(0,0,0,.45)';cx.beginPath();cx.arc(cx0,cy0,s*0.66,0,7);cx.stroke();
+    cx.strokeStyle=col;cx.shadowColor=col;cx.shadowBlur=urgent?16+8*Math.sin(t*10):10;cx.beginPath();cx.arc(cx0,cy0,s*0.66,-Math.PI/2,-Math.PI/2+f*Math.PI*2);cx.stroke();
+    cx.shadowBlur=0;cx.font='22px "Lilita One", "Arial Rounded MT Bold", sans-serif';cx.textAlign='center';cx.textBaseline='middle';cx.lineWidth=4;cx.strokeStyle='rgba(0,0,0,.7)';
+    const txt=Math.ceil(B.guard)+'s';cx.strokeText(txt,cx0,cy0-s*0.66-16);cx.fillStyle=col;cx.fillText(txt,cx0,cy0-s*0.66-16);cx.restore()}
+  // split skins: the broken block's two halves slide apart along the cut
+  if(FX.ghost){const G=FX.ghost;G.life-=dt;
+    if(G.life<=0)FX.ghost=null;
+    else{const p=1-G.life/G.max,d=easeOut(p)*G.size*0.35,nx=-Math.sin(G.a),ny=Math.cos(G.a);
+      for(const sd of [-1,1]){cx.save();cx.translate(cx0+nx*d*sd,cy0+ny*d*sd+p*p*G.size*0.5);cx.rotate(G.a);cx.beginPath();cx.rect(-G.size,sd<0?-G.size:0,G.size*2,G.size);cx.clip();cx.rotate(-G.a+sd*p*0.25);
+        cx.globalAlpha=1-p;cx.drawImage(G.c,-G.size/2,-G.size/2,G.size,G.size);cx.restore()}
+      cx.save();cx.translate(cx0,cy0);cx.rotate(G.a);cx.globalAlpha=(1-p)*0.9;cx.strokeStyle='#fff';cx.shadowColor='#ff2a4a';cx.shadowBlur=14;cx.lineWidth=3*(1-p);cx.beginPath();cx.moveTo(-G.size*.8,0);cx.lineTo(G.size*.8,0);cx.stroke();cx.restore()}}
   // critters
   updCritters(dt,t);
   for(let i=0;i<VIS.length;i++){const v=VIS[i],c=S.crit[i];drawCritter(cx,v.x,v.y,c.s,1.15+(SPECIES[c.s].r>=4?0.25:0),t,v.ph,c.g)}
   // particles
   for(let i=FX.parts.length-1;i>=0;i--){const p=FX.parts[i];p.life-=dt;if(p.life<=0){FX.parts[i]=FX.parts[FX.parts.length-1];FX.parts.pop();continue}
-    p.vy+=p.g*dt;p.x+=p.vx*dt;p.y+=p.vy*dt;cx.globalAlpha=clamp(p.life/p.max*1.4,0,1);cx.fillStyle=p.col;
-    if(p.k==='spark'){cx.beginPath();cx.arc(p.x,p.y,p.s,0,7);cx.fill()}else{p.r+=p.vr*dt;cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillRect(-p.s/2,-p.s/2,p.s,p.s);cx.restore()}}
+    if(p.orbit){p.oa+=p.ow*dt;p.or*=Math.pow(0.03,dt/p.max);p.x=p.ocx+Math.cos(p.oa)*p.or;p.y=p.ocy+Math.sin(p.oa)*p.or}
+    else{p.vy+=p.g*dt;if(p.drag){const d=Math.pow(p.drag,dt);p.vx*=d;p.vy*=d}p.x+=p.vx*dt+(p.sway?Math.sin(p.life*4+p.sway)*30*dt:0);p.y+=p.vy*dt}
+    p.r=(p.r||0)+(p.vr||0)*dt;
+    cx.globalAlpha=clamp(p.life/p.max*1.4,0,1);drawPart(p)}
   cx.globalAlpha=1;
+  drawFx(dt);
   // floating text
   cx.textAlign='center';cx.textBaseline='middle';
   for(let i=FX.texts.length-1;i>=0;i--){const f=FX.texts[i];f.life-=dt;if(f.life<=0){FX.texts.splice(i,1);continue}f.y+=f.vy*dt;f.vy*=Math.pow(0.4,dt);
@@ -1102,7 +1485,8 @@ const gemHtml=(o,big)=>`<i class="gem${big?' big':''}${tierOf(o.n)===6?' x6':''}
 const dis=b=>b?'':' disabled';
 
 function renderStats(){
-  put($('#stats'),[
+  const hc=HC()?`<div class="stat"><span class="k">Hearts</span><span class="v">${heartsHtml(S.hc.hearts,maxHearts())}</span></div><button class="stat lamp${S.hc.light<25?' low':''}" data-act="tab" data-id="lantern" title="Relight in the Lantern tab"><span class="k">Lantern</span><span class="v">${Math.ceil(S.hc.light)}%</span><span class="mini"><i style="width:${S.hc.light.toFixed(1)}%"></i></span></button>`:'';
+  put($('#stats'),hc+[
     ['coins','Coins',fmt(S.coins)],
     ['','Power',fmt(D.power)],
     ['','Luck','×'+fmtX(D.luck)],
@@ -1115,7 +1499,8 @@ function renderMine(){
   const m=n=>n<1e6?Math.floor(n).toLocaleString('en-US'):fmt(n);
   put($('#ltag'),`<div class="ln">${esc(L.name)}</div><div class="ld">${m(S.depth)}<small> m</small></div><div class="lb">Deepest ${m(S.stats.best)} m${S.anchor?' · Anchored':''}</div>`);
   const now=Date.now();
-  put($('#buffs'),S.buffs.filter(b=>b.until>now).map(b=>{const d=BUFFS[b.id];return`<div class="buff" style="--bc:${d.col}"><b>${d.name}</b> ${d.desc} · ${Math.ceil((b.until-now)/1000)}s</div>`}).join(''));
+  const pv=UI.preview&&UI.preview.until>now?`<div class="buff" style="--bc:${RCOL[SKIN[UI.preview.id].r]}"><b>Preview</b> ${esc(SKIN[UI.preview.id].name)} · ${Math.ceil((UI.preview.until-now)/1000)}s</div>`:'';
+  put($('#buffs'),pv+S.buffs.filter(b=>b.until>now).map(b=>{const d=BUFFS[b.id];return`<div class="buff" style="--bc:${d.col}"><b>${d.name}</b> ${d.desc} · ${Math.ceil((b.until-now)/1000)}s</div>`}).join(''));
   const reach=LAYERS.map((l,i)=>[l,i]).filter(([l])=>l.start<=S.stats.runBest);
   put($('#ctrl'),`<button class="btn sm${S.anchor?' on':''}" data-act="anchor" title="Anchored: stay at this depth to farm its ore">${S.anchor?'Anchored':'Descending'}</button>`+
     (reach.length>1?`<span class="lbl" style="margin-left:6px">Elevator</span>`+reach.map(([l,i])=>`<button class="btn sm${i===B.li?' on':''}" data-act="elev" data-i="${i}" title="${esc(l.name)}">${fmt(l.start)} m</button>`).join(''):`<span class="faint" style="font-size:12px">Tip: Anchor to keep mining at one depth.</span>`));
@@ -1123,17 +1508,30 @@ function renderMine(){
   let val=0;for(const id of ids)val+=Math.max(0,S.inv[id]-(res[id]||0))*ORE[id].v;val*=D.coin;
   put($('#bag'),`<div class="bag-h"><h3>Ore bag</h3><span class="muted">${S.up.cart?'Mine cart sells automatically.':'Tap an ore to sell it.'}</span><button class="btn buy sm" data-act="sellall"${dis(val>0)}>Sell all · ${fmt(val)}</button></div>`+
     (ids.length?`<div class="chips">${ids.map(id=>{const o=ORE[id],k=res[id]||0;return`<button class="chip" data-act="sell" data-id="${id}" title="${esc(o.name)}: ${fmt(o.v*D.coin)} coins each${k?` · keeping ${k} for a pickaxe`:''}">${gemHtml(o)}${esc(o.name)} <span class="n">${fmt(S.inv[id])}</span></button>`}).join('')}</div>`
-    :`<div class="empty">Click the rock to mine. Ore you find lands here.</div>`));
+    :`<div class="empty">Click the rock to mine. Ore you find lands here.</div>`)+cursedBag());
   const hp=$('#hp');const cls='hp'+(B.type==='seal'?' seal':B.type==='geode'?' geode':'');if(hp.className!==cls)hp.className=cls;
+}
+function cursedBag(){
+  if(!HC())return'';const ids=Object.keys(S.hc.cursed).filter(k=>S.hc.cursed[k]>0);if(!ids.length)return'';
+  const ch=curseHeld();
+  return`<div class="cursed-h"><span class="cz">☠ ${ch} curse</span><span class="faint">Lantern burns ${Math.round((curseMult()-1)*100)}% faster. Tap to sell for ${CURSE_SELL}×, or spend at the Cursed Altar.</span></div><div class="chips">`+
+    ids.map(id=>{const o=ORE[id],n=S.hc.cursed[id];return`<button class="chip cursed" data-act="sellcurse" data-id="${id}" title="Sell for ${fmt(o.v*CURSE_SELL*n*D.coin)} coins">${gemHtml(o)}Cursed ${esc(o.name)} <span class="n">${fmt(n)}</span></button>`}).join('')+`</div>`;
+}
+function tabAltar(){
+  if(!HC())return'';const ch=curseHeld();
+  let h=`<div class="altar"><div class="th" style="margin-bottom:4px"><h2 style="color:#c08bff">Cursed Altar</h2><span class="cz">☠ ${ch} curse held</span></div><p class="sub" style="margin:0 0 10px">Paid only in cursed ore, cheapest first. These upgrades last through rekindles. Holding curse while you save up makes your lantern burn faster.</p><div class="list">`;
+  for(const u of CURSE_UP){const L=hup(u.id),maxed=L>=u.max,c=maxed?0:cupCost(u,L);
+    h+=`<div class="row"><div><div class="rt">${u.name}<span class="lv">${u.max===1?'':'Lv '+L+' / '+u.max}</span></div><div class="rd">${u.desc}</div></div><button class="btn curse" data-act="cup" data-id="${u.id}"${dis(!maxed&&ch>=c)}>${maxed?'Owned':'☠ '+c}</button></div>`}
+  return h+`</div></div>`;
 }
 function renderTabs(){
   const cq=claimable(),eg=emberGain();
-  const tabs=[['up','Upgrades'],['pick','Pickaxes'],['lantern','Lantern'],['gear','Gear'],['quest','Quests',cq],['codex','Codex'],['ember','Rekindle',eg>0&&S.stats.rekindles===0?'!':0],['troph','Trophies'],['set','Settings']];
+  const tabs=[['up','Upgrades'],['pick','Pickaxes'],['lantern','Lantern'],['gear','Gear'],['skins','Skins'],['quest','Quests',cq],['codex','Codex'],['ember','Rekindle',eg>0&&S.stats.rekindles===0?'!':0],['troph','Trophies'],['set','Settings']];
   put($('#tabs'),tabs.map(([id,n,b])=>`<button class="tab${UI.tab===id?' on':''}" data-act="tab" data-id="${id}">${n}${b?`<span class="dot">${b}</span>`:''}</button>`).join(''));
 }
 function tabUp(){
   const amt=S.settings.buy;
-  let h=`<div class="th"><h2>Upgrades</h2><div class="seg" role="group" aria-label="Buy amount">${['1','10','max'].map(a=>`<button class="segb${amt===a?' on':''}" data-act="buyamt" data-v="${a}">${a==='max'?'Max':'×'+a}</button>`).join('')}</div></div><div class="list">`;
+  let h=tabAltar()+`<div class="th"><h2>Upgrades</h2><div class="seg" role="group" aria-label="Buy amount">${['1','10','max'].map(a=>`<button class="segb${amt===a?' on':''}" data-act="buyamt" data-v="${a}">${a==='max'?'Max':'×'+a}</button>`).join('')}</div></div><div class="list">`;
   for(const u of UPGRADES){const L=S.up[u.id]||0,maxed=L>=u.max,q=buyQty(u,L,amt);
     h+=`<div class="row"><div><div class="rt">${u.name}<span class="lv">${u.max===1?'':'Lv '+fmt(L)+(u.max<Infinity?' / '+u.max:'')}</span></div><div class="rd">${u.desc} <span class="now">${u.now(L)}</span></div></div>`+
       `<button class="btn buy" data-act="up" data-id="${u.id}"${dis(!maxed&&S.coins>=q.cost)}>${maxed?'Maxed':(q.n>1?'×'+q.n+' · ':'')+fmt(q.cost)}</button></div>`}
@@ -1159,22 +1557,32 @@ function saveEdit(){
   else if(e.kind==='build')S.builds[e.i].name=v||`Build ${e.i+1}`;
   else if(e.kind==='miner'){CL.minerName=v;try{localStorage.setItem(MINER_KEY,v)}catch(err){}postBoard();if(v)toast(`Hi, ${esc(v)}! Your name shows on the leaderboard.`,'#86d68f')}
   else if(e.kind==='slot')renameSlot(e.i,v||`Slot ${e.i+1}`);
-  else if(e.kind==='slotnew'){UI.edit=null;newGame(e.i,v||`Slot ${e.i+1}`);return}
+  else if(e.kind==='slotnew'){UI.edit=null;const nm=v||`Slot ${e.i+1}`;if(META.hc)UI.pickMode={i:e.i,name:nm};else newGame(e.i,nm,'normal');return}
   UI.edit=null;
 }
 function perkLine(c){const sp=SPECIES[c.s],v=sp.v*(1+0.08*(c.l-1))*(c.g?1.5:1),hits=sp.rate*(1+0.3*(c.l-1))*(c.g?2:1);
   const p={power:`+${pct(v)} power`,luck:`+${pct(v)} luck`,coins:`+${pct(v)} coins`,crit:`+${pct(v)} crit chance`,roll:`+${pct(v)} extra rolls`,all:`+${pct(v)} power, luck and coins`}[sp.perk];
   return`${fmtX(hits)} hits/s`+(p?` · ${p}`:'')}
+function flameCard(){
+  if(!HC())return'';
+  const L=S.hc.light,left=L/lightDrain(),pct=Math.min(25,100-L),c25=relightCost(Math.max(pct,0.5)),cf=relightCost(Math.max(100-L,0.5)),full=L>=99.5,big=S.crit.some(c=>SPECIES[c.s].r>=4);
+  return`<div class="flame${L<25?' low':''}"><div class="fl-top"><div><div class="lbl">Lantern flame</div><div class="pct">${Math.ceil(L)}%</div></div><div><div class="lbl">Hearts</div><span class="big-hearts">${heartsHtml(S.hc.hearts,maxHearts())}</span></div></div>`+
+    `<div class="bar fl"><i style="width:${L.toFixed(1)}%"></i></div><div class="muted" style="font-size:13px">${full?'Burning bright.':`Burns out in about ${dur(left)}.`} If it goes dark you lose a heart. Relighting costs more the deeper you dig.</div>`+
+    (curseHeld()?`<div style="font-size:12.5px;color:#c08bff;font-weight:800">☠ ${curseHeld()} curse held: burning ${Math.round((curseMult()-1)*100)}% faster.</div>`:'')+
+    `<div class="ctrl"><button class="btn buy" data-act="relight" data-v="25"${dis(!full&&S.coins>=c25)}>${pct<25?'Top up':'+25%'} · ${fmt(c25)}</button><button class="btn buy" data-act="relight" data-v="full"${dis(!full&&S.coins>=cf)}>Fill · ${fmt(cf)}</button></div>`+
+    `<div class="faint" style="font-size:12px">${S.hc.hearts>=maxHearts()?'Your hearts are full.':big?'To restore a heart, sacrifice a Legendary or rarer glowkin below.':'To restore a heart you need a Legendary or rarer glowkin to sacrifice.'}</div></div>`;
+}
 function tabLantern(){
   const ms=maxSlots();
-  let h=`<div class="th"><h2>Lantern</h2><span class="muted" style="font-size:13px">${S.crit.length} / ${ms} glowkin · ${fmtX(D.autoHits)} hits/s</span></div><p class="sub">Glowkin live in your lantern and strike the rock for you. Each hit uses your pickaxe power, so better picks make them stronger too.</p><div class="cgrid">`;
+  let h=`<div class="th"><h2>Lantern</h2><span class="muted" style="font-size:13px">${S.crit.length} / ${ms} glowkin · ${fmtX(D.autoHits)} hits/s</span></div><p class="sub">Glowkin live in your lantern and strike the rock for you. Each hit uses your pickaxe power, so better picks make them stronger too.</p>${flameCard()}<div class="cgrid">`;
   S.crit.forEach((c,i)=>{const sp=SPECIES[c.s],k=lvlCost(c),ed=isEditing('kin',i);
     h+=`<div class="ck${c.g?' gift':''}"><span class="cimg ic-${c.s}" aria-hidden="true"></span>`+
       (ed?edField(c.n||sp.name):`<div class="cn">${esc(c.n||sp.name)}${c.g?' <span class="gtag">Gifted</span>':''}</div>${c.n?`<div class="sn">${sp.name}</div>`:''}`)+
       `<div class="cr t${sp.r}">${RAR[sp.r]} · Lv ${c.l}</div><div class="cp">${perkLine(c)}</div><div class="ca">`+
       (c.l>=MAXLV?'<span class="faint" style="font-size:12px">Max level</span>':`<button class="btn sm buy" data-act="lvl" data-i="${i}"${dis(S.coins>=k)}>Level up · ${fmt(k)}</button>`)+
       (ed?'':`<button class="btn sm" data-act="edit" data-kind="kin" data-i="${i}">Name</button>`)+
-      `<button class="btn sm${confirming('rel'+i)?' warn':''}" data-act="rel" data-i="${i}">${confirming('rel'+i)?'Release?':'Release'}</button></div></div>`});
+      `<button class="btn sm${confirming('rel'+i)?' warn':''}" data-act="rel" data-i="${i}">${confirming('rel'+i)?'Release?':'Release'}</button>`+
+      (HC()&&sp.r>=4&&S.hc.hearts<maxHearts()?`<button class="btn sm warn" data-act="sac" data-i="${i}">${confirming('sac'+i)?'Give it up for a heart?':'Sacrifice for a heart'}</button>`:'')+`</div></div>`});
   for(let i=S.crit.length;i<ms;i++)h+=`<div class="ck emptyslot">Empty slot<br>Hatch an egg below</div>`;
   h+=`</div><div style="margin-top:10px">`+(S.slotsBought<9?`<button class="btn" data-act="slot"${dis(S.coins>=slotCost())}>Add a lantern slot · ${fmt(slotCost())}</button>`:`<span class="faint" style="font-size:12px">All coin slots bought. Lantern Wick (Rekindle) adds more.</span>`)+`</div><div class="sec">Eggs</div><div class="eggs">`;
   for(const e of EGGS){const locked=S.stats.best<e.unlock,free=S.freeEggs[e.id]||0,c=eggCost(e),full=S.crit.length>=ms;
@@ -1209,6 +1617,40 @@ function tabGear(){
   h+=`<div class="sec">Found while digging</div><div class="list">${ACCS.filter(a=>!a.shop).map(accRow).join('')}</div>`;
   return h;
 }
+const crateCost=c=>Math.max(c.min,nice(expBlockCoins()*c.k));
+const skTile=sk=>`<div class="tile" style="--rc:${RCOL[sk.r]}"><span class="sw" style="background:${sk.sw}"></span><span>${esc(sk.name)}</span></div>`;
+function tabSkins(){
+  const owned=SKINS.filter(s=>S.skins[s.id]).length,cur=curSkin(),prev=UI.preview&&UI.preview.until>Date.now();
+  let h=`<div class="th"><h2>Skins</h2><span class="muted" style="font-size:13px">${owned} / ${SKINS.length} owned</span></div><p class="sub">Skins change how rock breaks under your pickaxe. They work on every pickaxe and stay through rekindles. Spin a crate to win one; a duplicate refunds 30% of the price. Prices grow with how deep you dig.</p><div class="crates">`;
+  for(const c of CRATES){const cost=crateCost(c),odds=c.w.map((w,i)=>w>0?`<span class="t${i}">${RAR[i]} ${w}%</span>`:'').join('');
+    h+=`<div class="crate"><span class="cbox" style="--c1:${c.c1};--c2:${c.c2}"></span><div class="rt">${c.name}</div><div class="odds">${odds}</div><button class="btn buy" data-act="crate" data-id="${c.id}"${dis(S.coins>=cost)}>Open · ${fmt(cost)}</button></div>`}
+  h+=`</div><div class="sec">${prev?'Previewing':'Equipped'}: ${esc(cur.name)}</div><div class="skg">`;
+  for(const sk of SKINS){const own=!!S.skins[sk.id],eq=S.skin===sk.id;
+    h+=`<div class="skc${eq?' on':''}${own?'':' locked'}"><span class="sw" style="background:${sk.sw}"></span><div class="rt">${esc(sk.name)}</div><div class="t${sk.r}" style="font-size:12px;font-weight:800">${RAR[sk.r]}${own?'':' · Not owned'}</div><div class="rd">${esc(sk.desc)}</div><div class="acts">`+
+      (own?(eq?'<span class="now" style="font-size:12px">Equipped</span>':`<button class="btn sm buy" data-act="skin" data-id="${sk.id}">Equip</button>`):'')+
+      (eq?'':`<button class="btn sm" data-act="skinpreview" data-id="${sk.id}">Preview</button>`)+`</div></div>`}
+  return h+'</div>';
+}
+function openCrate(id){
+  const c=CRATE[id];if(!c||!RUN)return;const cost=crateCost(c);if(S.coins<cost)return;
+  S.coins-=cost;S.stats.crates=(S.stats.crates||0)+1;
+  const roll=()=>{const r=weighted(c.w.map((w,i)=>[i,w]).filter(p=>p[1]>0));const pool=SKINS.filter(s=>s.r===r&&s.id!=='default');return pool[(rnd()*pool.length)|0]};
+  const win=roll(),dup=!!S.skins[win.id],refund=dup?nice(cost*0.3):0;
+  if(dup)gainCoins(refund);else S.skins[win.id]=1;
+  saveLocal();
+  const WIN=36,tiles=[];for(let i=0;i<44;i++)tiles.push(i===WIN?win:roll());
+  showModal(`<h2>${c.name}</h2><div class="reel"><div class="strip" id="strip">${tiles.map(skTile).join('')}</div><div class="needle"></div></div><div class="spinres" id="spinres"><p class="faint">Spinning…</p></div>`);
+  const strip=$('#strip');strip.getBoundingClientRect();
+  const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,ms=reduce?300:4200;
+  const off=WIN*104+48-strip.parentElement.clientWidth/2+(rnd()-.5)*70;
+  strip.style.transition=`transform ${ms}ms cubic-bezier(.1,.7,.12,1)`;strip.style.transform=`translateX(${-off}px)`;
+  if(!reduce){let t=0;for(let k=0;k<26;k++){t+=35+k*k*0.75;if(t>ms-150)break;setTimeout(()=>tone(1000,0.025,'square',0.012),t)}}
+  setTimeout(()=>{const el=$('#spinres');if(!el)return;
+    el.innerHTML=`<div class="t${win.r}" style="font-weight:900;letter-spacing:.14em;text-transform:uppercase;font-size:12px">${RAR[win.r]} · ${dup?'Duplicate':'New skin!'}</div><h2>${esc(win.name)}</h2><p>${dup?`You already own this one. Refunded ${fmt(refund)} coins.`:esc(win.desc)}</p>`+
+      `<div class="ctrl">${dup||S.skin===win.id?'':`<button class="btn buy" data-act="skin" data-id="${win.id}" data-close="1">Equip</button>`}<button class="btn" data-act="crate" data-id="${c.id}"${dis(S.coins>=crateCost(c))}>Spin again · ${fmt(crateCost(c))}</button><button class="btn" data-act="close">Close</button></div>`;
+    sfx.rare(Math.max(3,win.r+1));
+  },ms+150);
+}
 function tabQuest(){
   const cd=Math.max(0,Math.ceil((S.questSwapAt-Date.now())/1000));
   let h=`<div class="th"><h2>Quests</h2><span class="muted" style="font-size:13px">${fmt(S.stats.quests)} completed</span></div><p class="sub">Old Fennick, the lamp-keeper at the shaft mouth, pays for odd jobs. New quests scale with how deep you are.</p><div class="list">`;
@@ -1229,7 +1671,8 @@ function tabCodex(){
 }
 function tabEmber(){
   const g=emberGain();
-  let h=`<div class="th"><h2>Rekindle</h2></div><p class="sub">Relight your lantern at the surface. You keep glowkin (reset to level 1), accessories, the codex, trophies and embers. Coins, ore, upgrades, pickaxes and depth reset. Each unspent ember adds 2% power and coins.</p>
+  const rk=S.stats.rekindles||0;
+  let h=`<div class="th"><h2>Rekindle <span class="rkc" title="Times rekindled in this save">${fmt(rk)}</span></h2><span class="muted" style="font-size:13px">${rk===0?'Not rekindled yet':`Rekindled ${fmt(rk)} ${rk===1?'time':'times'} in this save`}</span></div><p class="sub">Relight your lantern at the surface. You keep glowkin (reset to level 1), accessories, the codex, trophies and embers. Coins, ore, upgrades, pickaxes and depth reset. Each unspent ember adds 2% power and coins.</p>
   <div class="ember"><div><div class="lbl">Embers</div><div class="big">${fmt(S.embers)}</div></div><div><div class="lbl">Gain now</div><div class="big" style="color:${g?'var(--lantern)':'var(--ink-faint)'}">+${fmt(g)}</div></div><div style="flex:1;min-width:160px"><div class="muted" style="font-size:13px">${g?`Based on your deepest point this run: ${fmt(S.stats.runBest)} m. Going deeper gives more.`:`Reach 300 m this run to earn embers. You are at ${fmt(S.stats.runBest)} m.`}</div></div>
   <button class="btn buy${confirming('rekindle')?' warn':''}" data-act="rekindle"${dis(g>0)}>${confirming('rekindle')?'Click again to rekindle':'Rekindle'}</button></div><div class="sec">Ember perks</div><div class="list">`;
   for(const p of PERKS){const L=S.perks[p.id]||0,maxed=L>=p.max,c=maxed?0:perkCost(p,L);
@@ -1238,6 +1681,11 @@ function tabEmber(){
 }
 function tabTroph(){
   let h=`<div class="th"><h2>Trophies</h2><span class="prog">${achCount()} / ${ACH.length} · +${3*achCount()}% power and coins</span></div>`;
+  const pg=PERMA.filter(p=>META.perma[p.id]).length;
+  h+=`<div class="sec" style="margin-top:4px">Perma-trophies · ${pg} / ${PERMA.length}</div><p class="sub" style="margin-top:0">Earned only in hardcore. Their rewards apply in every save, normal or hardcore.${META.hc?'':' Rekindle 5 times in any save to unlock hardcore.'}</p><div class="perma">`;
+  for(const p of PERMA){const got=!!META.perma[p.id];
+    h+=`<div class="pt${got?' got':''}">${TROPHY}<div style="min-width:0"><div class="an">${got?esc(p.name):'???'}</div><div class="ad">${got?'':'Hint: '}${esc(p.hint)}</div><div class="pfx">${Object.keys(p.fx).map(k=>fxText(k,p.fx[k])).join(' · ')}</div></div></div>`}
+  h+=`</div>`;
   h+=`<div class="sec">Deepest diggers</div>`;
   if(!CL.db)h+=`<p class="muted" style="font-size:13px">The shared leaderboard and cloud saves turn on when this page is opened on claude.ai while signed in. Your progress still saves in this browser.</p>`;
   else if(!CL.board)h+=`<p class="muted" style="font-size:13px">Loading the leaderboard…</p>`;
@@ -1263,18 +1711,19 @@ function tabSet(){
   <div class="ctrl" style="margin-top:8px"><button class="btn" data-act="export">Export</button><button class="btn" data-act="copy">Copy</button><button class="btn" data-act="import">Import</button><button class="btn${confirming('reset')?' warn':''}" data-act="reset" style="margin-left:auto">${confirming('reset')?'Click again to wipe this slot':'Reset this slot'}</button></div>
   <div class="sec">How it works</div><p class="sub" style="margin-top:0">Each block you break is one meter deeper. Ores roll from rarest to most common, and luck multiplies every chance. Every 100 m a Strata Seal blocks the way: it has 10× HP and pays out big. Catch the sparkling glints that drift through the shaft for short boosts.</p>`;
 }
-const TABR={up:tabUp,pick:tabPick,lantern:tabLantern,gear:tabGear,quest:tabQuest,codex:tabCodex,ember:tabEmber,troph:tabTroph,set:tabSet};
+const TABR={up:tabUp,pick:tabPick,lantern:tabLantern,gear:tabGear,skins:tabSkins,quest:tabQuest,codex:tabCodex,ember:tabEmber,troph:tabTroph,set:tabSet};
 function ago(t){const s=(Date.now()-t)/1000;return s<60?'just now':s<3600?`${Math.floor(s/60)} min ago`:s<86400?`${Math.floor(s/3600)} h ago`:`${Math.floor(s/86400)} d ago`}
 function renderTitle(){
   const el=$('#title');el.hidden=!UI.title;if(!UI.title)return;
   const sync=CL.syncing?'Checking your claude.ai account for saves…':CL.ready?'Saves sync to your claude.ai account and this browser.':'Saves are kept in this browser.';
-  let h=`<div class="ti"><div class="brand"><span class="mark" aria-hidden="true"></span><h1>Lantern Deep</h1></div><p class="tag">Dig down. Find the impossible ore.</p><h2>Choose a save</h2><p class="faint" style="font-size:13px;margin:0">${sync}</p><div class="slots">`;
+  let h=`<div class="ti"><div class="brand"><span class="mark" aria-hidden="true"></span><h1>Lantern Deep</h1></div><p class="tag">Dig down. Find the impossible ore.</p><h2>Choose a save</h2><p class="faint" style="font-size:13px;margin:0">${sync}</p><p style="font-size:13px;margin:6px 0 0;color:${META.hc?'#ff5f7a':'var(--ink-faint)'};font-weight:800">${META.hc?`Hardcore mode unlocked · ${PERMA.filter(p=>META.perma[p.id]).length}/${PERMA.length} perma-trophies`:'Rekindle 5 times in any save to unlock Hardcore mode.'}</p><div class="slots">`;
   for(let i=0;i<3;i++){const r=SLOTS[i];
     if(r&&UI.delSlot===i){h+=`<div class="sl del"><div class="sk">Slot ${i+1}</div><div class="snm">Delete “${esc(r.name)}”?</div><div class="sm2">This erases its progress here${CL.ready?' and on your account':''}. You can't undo it.</div><div class="acts"><button class="btn warn" data-act="slotdel" data-i="${i}">Delete forever</button><button class="btn" data-act="slotdelno">Keep it</button></div></div>`;continue}
-    if(r){h+=`<div class="sl"><div class="sk">Slot ${i+1}</div>${isEditing('slot',i)?edField(r.name):`<div class="snm">${esc(r.name)}</div>`}<div class="sm2">Deepest ${fmt(r.best||0)} m${r.pick?` · ${esc(r.pick)}`:''}<br>${dur(r.play||0)} played · saved ${ago(r.savedAt||0)}</div>`+
+    if(r){h+=`<div class="sl"><div class="sk">Slot ${i+1}</div>${r.mode==='hardcore'?`<span class="hcb">Hardcore ${heartsHtml(r.hearts||0,r.maxHearts||3)}</span>`:''}${isEditing('slot',i)?edField(r.name):`<div class="snm">${esc(r.name)}</div>`}<div class="sm2">Deepest ${fmt(r.best||0)} m${r.pick?` · ${esc(r.pick)}`:''}<br>${dur(r.play||0)} played · saved ${ago(r.savedAt||0)}</div>`+
       `<div class="acts"><button class="btn buy" data-act="slotplay" data-i="${i}"${dis(!CL.syncing)}>Play</button>${isEditing('slot',i)?'':`<button class="btn" data-act="edit" data-kind="slot" data-i="${i}">Rename</button>`}<button class="btn" data-act="slotdelask" data-i="${i}">Delete</button></div></div>`;continue}
     h+=`<div class="sl emptys"><div class="sk">Slot ${i+1}</div><div class="snm faint">Empty</div>`+
-      (isEditing('slotnew',i)?`<div class="sm2">Name this save</div>${edField(`Slot ${i+1}`)}`:`<div class="sm2">Start a fresh dig from the surface.</div><div class="acts"><button class="btn buy" data-act="edit" data-kind="slotnew" data-i="${i}"${dis(!CL.syncing)}>New game</button></div>`)+`</div>`}
+      (UI.pickMode&&UI.pickMode.i===i?`<div class="sm2">Choose a mode for “${esc(UI.pickMode.name)}”</div><div class="modes"><button class="btn" data-act="slotmode" data-mode="normal">Normal<small>The full game at full strength.</small></button><button class="btn hard" data-act="slotmode" data-mode="hardcore">Hardcore<small>3 hearts. Keep your lantern lit with coins or lose a heart. Lose all 3 and this save is erased. Everything pays less, and you can earn perma-trophies.</small></button><button class="btn sm" data-act="slotmodeno">Cancel</button></div>`:
+      isEditing('slotnew',i)?`<div class="sm2">Name this save</div>${edField(`Slot ${i+1}`)}`:`<div class="sm2">Start a fresh dig from the surface.</div><div class="acts"><button class="btn buy" data-act="edit" data-kind="slotnew" data-i="${i}"${dis(!CL.syncing)}>New game</button></div>`)+`</div>`}
   put(el,h+'</div></div>');
 }
 function renderUI(){renderStats();renderMine();renderTabs();put($('#tabbody'),TABR[UI.tab]());renderTitle();
@@ -1285,8 +1734,8 @@ function throttle(key,ms){const now=Date.now();if((UI.thr[key]||0)>now)return fa
 function toast(html,col,ms){const box=$('#toasts');while(box.children.length>4)box.firstChild.remove();const d=document.createElement('div');d.className='toast';if(col)d.style.setProperty('--tc',col);d.innerHTML=html;box.appendChild(d);
   setTimeout(()=>{d.classList.add('out');setTimeout(()=>d.remove(),320)},ms||3600)}
 function banner(kicker,title,sub,col){const b=$('#banner');b.innerHTML=`<div class="bn" style="--bc:${col}"><div class="bk">${esc(kicker)}</div><div class="bt">${esc(title)}</div><div class="bs">${esc(sub)}</div></div>`;clearTimeout(UI.bt);UI.bt=setTimeout(()=>{b.innerHTML=''},3500)}
-function showModal(html){const m=$('#modal');m.innerHTML=`<div class="mcard" role="dialog" aria-modal="true">${html}</div>`;m.hidden=false;const b=m.querySelector('[data-act="close"]');if(b)setTimeout(()=>b.focus(),50)}
-function closeModal(){const m=$('#modal');m.hidden=true;m.innerHTML=''}
+function showModal(html,cls){const m=$('#modal');m.innerHTML=`<div class="mcard${cls?' '+cls:''}" role="dialog" aria-modal="true">${html}</div>`;m.hidden=false;const b=m.querySelector('[data-act="close"]');if(b)setTimeout(()=>b.focus(),50)}
+function closeModal(){const m=$('#modal');m.hidden=true;m.innerHTML='';if(!RUN&&CUR===null&&!UI.title){UI.title=true;UI.last={}}}
 function showHatch(e,s,g){
   const sp=SPECIES[s];
   showModal(`<div class="hatch" style="--e1:${e.e1};--e2:${e.e2};--rc:${rgba(sp.col,.55)}"><div class="ray"></div><div class="egg"></div><img src="${ICON[s]}" alt=""></div>
@@ -1321,9 +1770,9 @@ document.addEventListener('click',e=>{
     case'export':{const io=$('#io');io.value=btoa(unescape(encodeURIComponent(serialize())));io.select();break}
     case'copy':{const io=$('#io');if(!io.value)io.value=btoa(unescape(encodeURIComponent(serialize())));const done=()=>toast('Save code copied.');
       try{navigator.clipboard.writeText(io.value).then(done,()=>{io.select();toast('Press Ctrl+C to copy the selected code.')})}catch(err){io.select();toast('Press Ctrl+C to copy the selected code.')}break}
-    case'import':{const v=$('#io').value.trim();if(!v){toast('Paste a save code first.','#ff6f61');break}
+    case'import':{if(HC()){toast("Hardcore saves can't import a save code.",'#ff6f61');break}const v=$('#io').value.trim();if(!v){toast('Paste a save code first.','#ff6f61');break}
       try{const o=JSON.parse(decodeURIComponent(escape(atob(v))));if(!o||typeof o!=='object'||!o.stats)throw 0;const nm=S.slotName;loadFrom(o);S.slotName=nm;saveLocal();toast('Save loaded into this slot.','#86d68f')}catch(err){toast("That code didn't load. Check that you copied all of it.",'#ff6f61')}break}
-    case'reset':if(confirmStep('reset')){const nm=S.slotName;S=freshState();S.slotName=nm;VIS=[];D=derive();B=makeBlock(0);fillQuests();FX.scroll=0;saveLocal();toast('Fresh start. Click the rock to dig.')}break;
+    case'reset':if(confirmStep('reset')){const nm=S.slotName,md=S.mode;S=freshState();S.slotName=nm;if(md==='hardcore'){S.mode=md;S.hc=freshHc()}VIS=[];D=derive();B=makeBlock(0);fillQuests();FX.scroll=0;saveLocal();toast('Fresh start. Click the rock to dig.')}break;
     case'close':closeModal();break;
     case'edit':startEdit(ds.kind,+ds.i);break;
     case'edsave':saveEdit();break;
@@ -1337,21 +1786,34 @@ document.addEventListener('click',e=>{
     case'slotdelno':UI.delSlot=null;break;
     case'slotdel':deleteSlot(+ds.i);break;
     case'toslots':toSlots();break;
+    case'crate':openCrate(ds.id);break;
+    case'slotmode':{const pm=UI.pickMode;UI.pickMode=null;if(pm)newGame(pm.i,pm.name,ds.mode==='hardcore'&&META.hc?'hardcore':'normal');break}
+    case'slotmodeno':UI.pickMode=null;break;
+    case'relight':relight(ds.v);break;
+    case'cup':buyCurseUp(ds.id);break;
+    case'sellcurse':if(HC())sellCursed(ds.id);break;
+    case'sac':sacrifice(+ds.i);break;
+    case'gameover':closeModal();UI.title=true;break;
+    case'skin':if(S.skins[ds.id]){S.skin=ds.id;UI.preview=null;sfx.buy()}break;
+    case'skinpreview':if(RUN&&SKIN[ds.id]){UI.preview={id:ds.id,until:Date.now()+8000};toast(`Previewing ${esc(SKIN[ds.id].name)} for 8 seconds. Swing at the rock!`,RCOL[SKIN[ds.id].r])}break;
   }
+  if(ds.close)closeModal();
   UI.last={};renderUI();
 });
 document.addEventListener('keydown',e=>{if(e.target&&e.target.id==='ed'){if(e.key==='Enter'){e.preventDefault();saveEdit();UI.last={};renderUI()}else if(e.key==='Escape'){UI.edit=null;UI.last={};renderUI()}}});
 
 // ================= save slots =================
-function startRun(){RUN=true;UI.title=false;UI.delSlot=null;UI.edit=null;FX.scroll=S.depth*46;last=performance.now();UI.last={};renderUI();postBoard()}
+function startRun(){FX.fx=[];FX.parts=[];FX.texts=[];FX.ghost=null;FX.shake=0;RUN=true;UI.title=false;UI.pickMode=null;UI.delSlot=null;UI.edit=null;FX.scroll=S.depth*46;last=performance.now();UI.last={};renderUI();postBoard()}
 function playSlot(i){
   const r=SLOTS[i];if(!r)return;
   try{loadFrom(JSON.parse(r.json))}catch(e){toast("That save couldn't be read.",'#ff6f61');return}
   S.slotName=r.name;CUR=i;startRun();
-  offlineGain((Date.now()-(S.lastSeen||Date.now()))/1000,true);
+  const away=(Date.now()-(S.lastSeen||Date.now()))/1000;hcOffline(away);offlineGain(away,true);
+  if(HC()&&!S.hc.seen.intro&&$('#modal').hidden)showHcIntro();
 }
-function newGame(i,name){
-  S=freshState();S.slotName=name;VIS=[];D=derive();B=makeBlock(0);fillQuests();CUR=i;RUN=true;saveLocal();saveCloud();startRun();
+function newGame(i,name,mode){
+  S=freshState();S.slotName=name;if(mode==='hardcore'){S.mode='hardcore';S.hc=freshHc()}VIS=[];D=derive();B=makeBlock(0);fillQuests();CUR=i;RUN=true;saveLocal();saveCloud();startRun();
+  if(HC())showHcIntro();
   toast('Click the rock to start digging.','#ffb83f',6000);
 }
 function renameSlot(i,name){const r=SLOTS[i];if(!r)return;r.name=name;try{const o=JSON.parse(r.json);o.slotName=name;r.json=JSON.stringify(o)}catch(e){}
@@ -1393,7 +1855,10 @@ async function initCloud(){
       if(old.exists){const x=old.data();if(!any&&!SLOTS[0]&&x&&typeof x.json==='string'){const o=JSON.parse(x.json);SLOTS[0]={name:'Slot 1',savedAt:x.savedAt||Date.now(),best:(o.stats&&o.stats.best)||0,play:(o.stats&&o.stats.play)||0,pick:'',json:x.json};
           try{localStorage.setItem(SLOT_KEY(0),JSON.stringify(SLOTS[0]))}catch(e){}await db.doc(base+'slot0').set(SLOTS[0])}
         await db.doc(base+'save').delete()}
-      CL.ready=true;CL.lastCloud='';
+      // perma-trophies and the hardcore unlock are shared: merge account and this browser
+      const ms=await db.doc(base+'meta').get();
+      if(ms.exists){const m=ms.data()||{};META.hc=META.hc||!!m.hc;META.perma=Object.assign({},m.perma||{},META.perma)}
+      CL.ready=true;CL.lastCloud='';saveMeta();
     }catch(e){}
     CL.syncing=false;UI.last={};
     let timer=setTimeout(()=>{if(!CL.board)CL.board=[]},10000);
@@ -1423,13 +1888,16 @@ const acc={save:0,cloud:0,sec:0,sell:0,ui:0,board:0};
 let last=performance.now();
 function tick(dt){
   D=derive();
+  if(HC()&&!$('#modal').hidden)return;
   S.stats.play+=dt;
   if(D.autoDps>0)applyDamage(D.autoDps*dt);
+  if(HC())hcTick(dt);
+  if(!RUN)return;
   const now=Date.now();
   if(S.buffs.some(b=>b.until<=now))S.buffs=S.buffs.filter(b=>b.until>now);
   if(!FX.glint&&now>S.nextGlint)spawnGlint();
   if(FX.glint&&now>FX.glint.until){FX.glint=null;scheduleGlint()}
-  if((acc.sec+=dt)>=1){acc.sec=0;checkAch()}
+  if((acc.sec+=dt)>=1){acc.sec=0;checkAch();checkMeta()}
   if(S.up.cart&&(acc.sell+=dt)>=3){acc.sell=0;sellAll(true)}
   if((acc.save+=dt)>=5){acc.save=0;saveLocal()}
   if((acc.cloud+=dt)>=45){acc.cloud=0;saveCloud()}
@@ -1439,15 +1907,18 @@ function tick(dt){
 let lastHp='';
 function frame(nowMs){
   let dt=(nowMs-last)/1000;last=nowMs;
-  if(dt>5){if(RUN)offlineGain(dt,false);dt=0.016}
+  if(dt>5){if(RUN){hcOffline(dt);offlineGain(dt,false)}dt=0.016}
   dt=Math.min(dt,0.1);
   FX.breaks=0;
   if(RUN)tick(dt);else D=derive();
   draw(dt,nowMs/1000);
   if((acc.ui+=dt)>=0.25){acc.ui=0;renderUI()}
   $('#hpf').style.width=(clamp(B.hp/B.max,0,1)*100).toFixed(2)+'%';
-  const hpTxt=`${B.type==='seal'?'Strata Seal':B.type==='geode'?'Geode':LAYERS[B.li].name.replace(/^The /,'')+' rock'} · ${fmt(Math.ceil(B.hp))} / ${fmt(B.max)}`;
+  const hpTxt=`${B.type==='seal'?'Strata Seal'+(HC()&&B.guard!=null?` · Guardian ${Math.ceil(B.guard)}s`:''):B.type==='geode'?'Geode':LAYERS[B.li].name.replace(/^The /,'')+' rock'} · ${fmt(Math.ceil(B.hp))} / ${fmt(B.max)}`;
   if(hpTxt!==lastHp){lastHp=hpTxt;$('#hpt').textContent=hpTxt}
+  // hardcore: the whole screen darkens as the lantern burns low
+  const dk=$('#dark'),dv=RUN&&HC()&&S.hc.light<50?((1-S.hc.light/50)*0.82*(S.hc.light<12?0.94+0.06*Math.sin(nowMs/90):1)).toFixed(2):'0';
+  if(dk.dataset.v!==dv){dk.dataset.v=dv;dk.style.opacity=dv}
   requestAnimationFrame(frame);
 }
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&RUN){saveLocal();saveCloud()}});
@@ -1455,7 +1926,7 @@ window.addEventListener('pagehide',saveLocal);
 
 // ================= boot =================
 function start(data){
-  readLocalSlots();
+  readLocalSlots();loadMeta();
   try{CL.minerName=(localStorage.getItem(MINER_KEY)||'').slice(0,20)}catch(e){}
   S=freshState();D=derive();B=makeBlock(0);fillQuests();
   makeIcons();resize();
