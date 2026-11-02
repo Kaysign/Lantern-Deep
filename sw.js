@@ -1,6 +1,6 @@
 // Offline support: serve everything from the cache first, then refresh the cache in the
 // background so a new upload of the game shows up on the next launch.
-const CACHE = 'lantern-deep-v11';
+const CACHE = 'lantern-deep-v12';
 const ASSETS = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
 
 self.addEventListener('install', e => {

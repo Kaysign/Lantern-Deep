@@ -295,6 +295,7 @@ textarea{width:100%;min-height:84px;background:var(--bg);color:var(--ink);border
 .spinres .ctrl{justify-content:center}
 
 /* Hardcore */
+#ver{position:fixed;left:calc(8px + env(safe-area-inset-left,0px));bottom:calc(6px + env(safe-area-inset-bottom,0px));z-index:66;font-size:11px;font-weight:800;letter-spacing:.04em;color:var(--ink-faint);opacity:.75;pointer-events:none;font-variant-numeric:tabular-nums}
 #dark{position:fixed;inset:0;pointer-events:none;z-index:40;opacity:0;background:radial-gradient(ellipse at 50% 42%,rgba(0,0,0,.6),#000 72%);transition:opacity .35s linear}
 .hrt{display:inline-block;width:18px;height:16px;margin-right:2px;vertical-align:-2px}
 .hrt.on path{fill:#ff4d6a;filter:drop-shadow(0 0 4px rgba(255,77,106,.6))}
@@ -403,6 +404,7 @@ button.stat{font:inherit;color:inherit;text-align:left;cursor:pointer}
 <div id="modal" hidden></div>
 <div id="title" hidden></div>
 <div id="dark" aria-hidden="true"></div>
+<div id="ver" aria-hidden="true"></div>
 
 <script>
 'use strict';
@@ -739,6 +741,8 @@ const ACH=[
 ];
 
 // ================= state =================
+// Shown in the bottom-left corner; bump on every update so players can tell a new version loaded.
+const GAME_VERSION='12';
 const KEY='lantern-deep-save-v1';
 const SLOT_KEY=i=>'lantern-deep-slot-'+i;
 function freshState(){return{
@@ -1929,6 +1933,7 @@ window.addEventListener('pagehide',saveLocal);
 
 // ================= boot =================
 function start(data){
+  $('#ver').textContent='v'+GAME_VERSION;
   readLocalSlots();loadMeta();
   try{CL.minerName=(localStorage.getItem(MINER_KEY)||'').slice(0,20)}catch(e){}
   S=freshState();D=derive();B=makeBlock(0);fillQuests();
