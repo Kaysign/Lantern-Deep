@@ -830,8 +830,11 @@ function checkMeta(){
   if(HC())for(const p of PERMA)if(p.test&&!META.perma[p.id]&&p.test())unlockPerma(p.id);
 }
 const heartsHtml=(n,max)=>Array.from({length:max||3},(_,i)=>`<svg class="hrt ${i<n?'on':'off'}" viewBox="0 0 24 22" aria-hidden="true">${HEART}</svg>`).join('');
-const lightDrain=()=>100/360*(1+0.1*layerAt(S.depth))*curseMult()*(1-0.08*hup('wick'));
-const relightCost=pct=>nice(Math.max(3,expBlockCoins()*0.45*pct*(1+0.35*layerAt(S.depth))*(1-0.1*hup('ward'))));
+// Burn rate and relight price follow the deepest layer reached this run, not the current depth,
+// so riding the elevator back up doesn't make the lantern cheaper.
+const hcLayer=()=>layerAt(Math.max(S.depth,S.stats.runBest));
+const lightDrain=()=>100/360*(1+0.1*hcLayer())*curseMult()*(1-0.08*hup('wick'));
+const relightCost=pct=>{const li=hcLayer();return nice(Math.max(3,expectedBlockValue(li,D.luck)*D.coin*0.45*pct*(1+0.35*li)*(1-0.1*hup('ward'))))};
 function hcTick(dt){
   const h=S.hc;
   // seal guardians: break the seal before the timer runs out
@@ -873,7 +876,7 @@ function showHcIntro(){
   S.hc.seen.intro=1;
   showModal(`<div class="intro"><div class="hcb" style="justify-content:center">${heartsHtml(3)}</div><h2>Hardcore rules</h2><p>Read these before you dig. Nothing burns down while this is open.</p><ul class="rules">
   <li><b>Three hearts.</b> Lose all three and this save is erased for good.</li>
-  <li><b>Your lantern burns down.</b> The screen darkens as it fades. Relight it with coins in the Lantern tab; it costs more the deeper you are. If it goes dark, you lose a heart.</li>
+  <li><b>Your lantern burns down.</b> The screen darkens as it fades. Relight it with coins in the Lantern tab; it costs more the deeper you've been this run, even if you head back up. If it goes dark, you lose a heart.</li>
   <li><b>Seal guardians.</b> Every Strata Seal has a guardian. Break the seal before its timer runs out or lose a heart.</li>
   <li><b>Cursed ores.</b> Epic or rarer ore can drop cursed. Holding it makes your lantern burn faster, but it sells for ${CURSE_SELL}× and it's the only way to buy Cursed Altar upgrades.</li>
   <li><b>Healing.</b> Sacrifice a Legendary or rarer glowkin in the Lantern tab to restore a heart.</li>
@@ -1567,7 +1570,7 @@ function flameCard(){
   if(!HC())return'';
   const L=S.hc.light,left=L/lightDrain(),pct=Math.min(25,100-L),c25=relightCost(Math.max(pct,0.5)),cf=relightCost(Math.max(100-L,0.5)),full=L>=99.5,big=S.crit.some(c=>SPECIES[c.s].r>=4);
   return`<div class="flame${L<25?' low':''}"><div class="fl-top"><div><div class="lbl">Lantern flame</div><div class="pct">${Math.ceil(L)}%</div></div><div><div class="lbl">Hearts</div><span class="big-hearts">${heartsHtml(S.hc.hearts,maxHearts())}</span></div></div>`+
-    `<div class="bar fl"><i style="width:${L.toFixed(1)}%"></i></div><div class="muted" style="font-size:13px">${full?'Burning bright.':`Burns out in about ${dur(left)}.`} If it goes dark you lose a heart. Relighting costs more the deeper you dig.</div>`+
+    `<div class="bar fl"><i style="width:${L.toFixed(1)}%"></i></div><div class="muted" style="font-size:13px">${full?'Burning bright.':`Burns out in about ${dur(left)}.`} If it goes dark you lose a heart. The price and burn speed follow the deepest layer you've reached this run.</div>`+
     (curseHeld()?`<div style="font-size:12.5px;color:#c08bff;font-weight:800">☠ ${curseHeld()} curse held: burning ${Math.round((curseMult()-1)*100)}% faster.</div>`:'')+
     `<div class="ctrl"><button class="btn buy" data-act="relight" data-v="25"${dis(!full&&S.coins>=c25)}>${pct<25?'Top up':'+25%'} · ${fmt(c25)}</button><button class="btn buy" data-act="relight" data-v="full"${dis(!full&&S.coins>=cf)}>Fill · ${fmt(cf)}</button></div>`+
     `<div class="faint" style="font-size:12px">${S.hc.hearts>=maxHearts()?'Your hearts are full.':big?'To restore a heart, sacrifice a Legendary or rarer glowkin below.':'To restore a heart you need a Legendary or rarer glowkin to sacrifice.'}</div></div>`;
